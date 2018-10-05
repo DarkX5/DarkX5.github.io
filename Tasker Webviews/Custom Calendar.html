@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Calendar Box</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+
+    <style>
+      .center {
+        margin: auto;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+      .calendar-container {
+        width: 95%;
+        height: 100%;
+        margin-left: 2%;
+      }
+
+      .top30 {
+        position: absolute;
+        top: 30%;
+      }
+
+      .calendar-item {
+        background-color: #2f9ec2;
+        min-width: 25px;
+        line-height: 25px;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px;
+        margin: 5px;
+        border-radius: 25px;
+      }
+
+      .selected {
+        background-color: black !important;
+        color: white !important;
+      }
+    </style>
+
+  <script>
+    (function() {
+        var urlList = [];
+        /* load scripts */
+        urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+        if(r.OS != "Android")
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+        r.f.loadResources(urlList);
+    })();
+    window.onload = function() { init(); }
+  </script>
+
+</head>
+
+<body style="width: 90%;">
+  <input type="date"/>
+  <div class="calendar-day" style="height:25%;">
+    <div class="calendar-container">
+      <div class="calendar-item day left" onclick="selectItem(this)">1</div>
+      <div class="calendar-item day left">2</div>
+      <div class="calendar-item day left">3</div>
+      <div class="calendar-item day left">4</div>
+      <div class="calendar-item day left">5</div>
+      <div class="calendar-item day left">6</div>
+      <div class="calendar-item day left">7</div>
+      <div class="calendar-item day left">8</div>
+      <div class="calendar-item day left">9</div>
+      <div class="calendar-item day left">10</div>
+      <div class="calendar-item day left">11</div>
+      <div class="calendar-item day left">12</div>
+      <div class="calendar-item day left">13</div>
+      <div class="calendar-item day left">14</div>
+      <div class="calendar-item day left">15</div>
+      <div class="calendar-item day left">16</div>
+      <div class="calendar-item day left">17</div>
+      <div class="calendar-item day left">18</div>
+      <div class="calendar-item day left">19</div>
+      <div class="calendar-item day left">20</div>
+      <div class="calendar-item day left">21</div>
+      <div class="calendar-item day left">22</div>
+      <div class="calendar-item day left">23</div>
+      <div class="calendar-item day left">24</div>
+      <div class="calendar-item day left">25</div>
+      <div class="calendar-item day left">26</div>
+      <div class="calendar-item day left">27</div>
+      <div class="calendar-item day left">28</div>
+      <div class="calendar-item day left">29</div>
+      <div class="calendar-item day left">30</div>
+      <div class="calendar-item day left">31</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="calendar-month" style="height:25%;">
+    <div class="calendar-container">
+      <div class="calendar-item month left">January</div>
+      <div class="calendar-item month left">February</div>
+      <div class="calendar-item month left">March</div>
+      <div class="calendar-item month left">April</div>
+      <div class="calendar-item month left">May</div>
+      <div class="calendar-item month left">June</div>
+      <div class="calendar-item month left">July</div>
+      <div class="calendar-item month left">August</div>
+      <div class="calendar-item month left">September</div>
+      <div class="calendar-item month left">Octomber</div>
+      <div class="calendar-item month left">November</div>
+      <div class="calendar-item month left">December</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+
+  <div class="calendar-year" style="height:25%;">
+    <div class="calendar-item year left">2017</div>
+    <div class="calendar-item year left">2018</div>
+  </div>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        //dayContainer = document.
+
+        var calendarItemList = document.getElementsByClassName("calendar-item");
+        for(var i=0; i < calendarItemList; i+= 1){
+          calendarItemList[i].addEventListener("click", "selectItem(this)", false);
+        }
+
+        // m.f.loadScript("masterLib.min.js", m.f.loadResourceLog);
+        if(m.OS == "Android")
+  				m.f.loadScript("tasker.js", m.f.loadResourceLog);
+
+        function generateBoxContent(boxContainer, boxType){
+          var now;
+          switch (boxType) {
+            case "year":
+              now = new Date();
+              boxContainer.append('<div class="calendar-year" style="height:25%;">');
+              boxContainer.append('<div class="calendar-item year left">'+ now.getFullYear() +'</div>');
+              boxContainer.append('<div class="calendar-item year left">'+ (now.getFullYear() + 1) +'</div>');
+              boxContainer.append('</div>');
+
+              break;
+            default:
+
+          }
+        }
+
+        function selectItem(target){
+          var defaultClasses = target.className.replace(" selected", "");
+          var currentBox = target.parentElement;
+          var content = currentBox.getElementsByClassName("calendar-item");
+          for(var i=0; i < content.length; i += 1)
+            content[i].className = defaultClasses;
+          target.className = defaultClasses + " selected";
+
+          debugger;
+        }
+	</script>
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>

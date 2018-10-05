@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>QUICK APPS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <style>
+        body { background-color: black; }
+    	input { width: 100%; height: 5vh; resize: none; }
+    	textarea { width: 100%; height: 82vh; resize: none; }
+    	span { font-size: 15px; font-weight: bold; }
+
+        /*#mainContainer */
+        .btn { background-color: rgba(47, 158, 194, 0.5); color: white; }
+        .btn .image { width: 32px; height: 32px; margin-right: 4px; }
+        .btn .text { line-height: 32px; }
+        
+        #Overlay { position:absolute; z-index: 1000; background-color: rgba(0, 0, 0, 0.5); min-width: 95vw; min-height: 100vh; }
+    </style>
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+
+
+</head>
+
+<body onchange="init()">
+
+    <div id="mainContainer" class="flex">
+    </div>
+    
+    <!-- <div id="appsPath" class="hide">/sdcard/0Sync/Work/HTML/Tasker Webviews</div> -->
+    <div id="appsList" class="hide">[
+        { "text": "Actions Dialog.html", "task": "", "image": "phone.png" },
+        { "text": "Auto SMS v3.html", "task": "", "image": "new_event.png" },
+        { "text": "Auto WiFi Sync Duration.html", "task": "", "image": "network_wifi.png" },
+        { "text": "Custom Calendar.html", "task": "", "image": "go_to_today.png" },
+        { "text": "PCCommands v3.html", "task": "", "image": "dock.png" },
+        { "text": "RoundTimer.html", "task": "", "image": "data_usage.png" },
+        { "text": "Timer.html", "task": "", "image": "data_usage.png" },
+        { "text": "ShoppingList.html", "task": "Shopping List Show", "image": "paste.png" },
+        { "text": "TODO.html", "task": "", "image": "accept.png" },
+        { "text": "WiFi Info.html", "task": "Wifi Networks Info Show", "image": "network_wifi.png" }
+    ]</div>
+    
+    <div id="Overlay" class="hide">
+    	<img src="./icon/loading.gif"  />
+    </div>
+
+    <script>
+        /* Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1); */
+        var appList = [];
+        init();
+
+        function openQuickApp(target) {
+            document.getElementById("Overlay").className = "";
+            var index = target.getAttribute("data-target");
+            var item = appList[index];
+            if(m.OS == "Android") {
+                if(m.f.isNullOrEmpty(item.task))
+                    window.open(o.path +"/"+ item.text, "_self");
+                else
+                    performTask(item.task, 100)
+                destroyScene("Quick Apps");
+            } else {
+                window.open(m.path +"/"+ item.text, "_self");
+            }
+        }
+
+        function init() {
+            appList = JSON.parse(document.getElementById("appsList").textContent);
+            var main = document.getElementById("mainContainer");
+            main.innerHTML = "";
+
+            for(var i = 0, btn; i < appList.length; i += 1) {
+                btn = "";
+                btn += '<div class="btn row" onclick="openQuickApp(this)" data-target="'+ i +'">';
+                btn += '<img class="image" src="'+ m.path +'/icon/'+ appList[i].image +'"/>';
+                btn += '<div class="text">'+ appList[i].text.replace(".html", "") +'</div>';
+                btn += '</div>';
+                main.innerHTML += btn;
+            }
+
+        }
+
+        init();
+	</script>
+</body>
+
+</html>

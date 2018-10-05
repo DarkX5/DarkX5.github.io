@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Shopping List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            min-width: 250px;
+            width: 96vw;
+        }
+        
+        .addBtn,.header{text-align:center}.addBtn,ul li{cursor:pointer}*{box-sizing:border-box}ul{margin:0;padding:0}ul li{position:relative;padding:12px 8px 12px 40px;list-style-type:none;background:#eee;font-size:18px;transition:.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}ul li:nth-child(odd){background:#f9f9f9}ul li:hover{background:#ddd}ul li.checked{background:#888;color:#fff;text-decoration:line-through}ul li.checked::before{content:'';position:absolute;border-color:#fff;border-style:solid;border-width:0 2px 2px 0;top:10px;left:16px;transform:rotate(45deg);height:15px;width:7px}.close{position:absolute;right:0;top:0;padding:12px 16px}.close:hover{background-color:#f44336;color:#fff}.header{background-color:#2f9ec2;padding:30px;color:#fff}.addBtn,input{padding:10px;float:left;font-size:16px}.header:after{content:"";display:table;clear:both}input{border:none;width:75%}.addBtn{width:25%;background:#d9d9d9;color:#555;transition:.3s}.addBtn:hover{background-color:#bbb}
+    </style>
+
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/data/shoppingListData.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+</head>
+
+<body>
+
+    <div id="SearchBar" class="header">
+        <h2 style="margin:5px">Shopping List</h2>
+        <input type="text" id="myInput" placeholder="Item name...">
+        <!-- <span onclick="newElement()" class="addBtn">Add</span> -->
+        <span onclick="addItem()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="ShoppingList">
+        <li>Error - Values Not Loaded<span class="close">×</span></li>
+    </ul>
+
+    <script>
+        /* Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1); */
+        var o = {};
+        o.localStorage = {
+                "data": "shoppingList"
+            }
+            
+        //var slData; 
+        // init();
+
+        function init() {
+            if(m.OS == 'Android')
+                o.path = "/sdcard/0Sync/Work/HTML/Tasker Webviews";
+            else
+                o.path = "./"; // "D:/0. Cloud/Sync/HTML/Tasker Webviews";
+
+            if(m.f.isNullOrEmpty(slData)) {
+                o.data = "[]";
+                o.list = []; /* o.list[i].text / o.list[i].value */
+            } else {
+                o.data = JSON.stringify(slData);
+                o.list = slData;
+            }
+
+            generateList();
+        }
+
+        function generateList() {
+            var list = document.getElementById("ShoppingList");
+
+            list.innerHTML = "";
+            for(var i = 0, item; i < o.list.length; i += 1) {
+                item = '<li data-item="'+ i +'" class="'+ (m.f.parseBool(o.list[i].value) ? "checked" : "") +'">';
+                item += o.list[i].text;
+                item += '<span class="close" onclick="deleteItem(this)">×</span></li>';
+                list.innerHTML += item;
+            }
+        }
+
+        function deleteItem(target) {
+        	var z = target.parentElement.getAttribute("data-item");
+        	o.list.splice(z, 1);
+
+            saveData();
+        	generateList();
+        }
+
+        function addItem() {
+            var itemText = document.getElementById("myInput").value;
+            var item = { "text": (m.f.isNullOrEmpty(itemText) ? "&nbsp;" : itemText), "value": 0 };
+            o.list.push(item);
+
+            document.getElementById("myInput").value = ""; /* clear old search values */
+            saveData();
+            generateList();
+        }
+
+        /*  Add a "checked" symbol when clicking on a list item */
+        document.querySelector('ul').addEventListener('click', function (ev) {
+            if (ev.target.tagName === 'LI') {
+                ev.target.classList.toggle('checked');
+                var index = ev.target.getAttribute("data-item");
+                o.list[index].value = ev.target.classList.value.indexOf("checked") > -1 ? 1 : 0;
+                saveData(); 
+            }
+        }, false);
+
+        function saveData() {
+        	var filepath = m.path +"/data/ShoppingListData.js";
+        	var tempdata = "var slData = "+ JSON.stringify(o.list);
+            m.f.setLS(o.localStorage.data, JSON.stringify(o.list));
+            
+            if(m.OS = "Android")
+            	performTask("Save Data", 100, m.path +"/data/shoppingListData.js", tempdata);
+        	//var ok = writeFile(slFile, slData, false);
+
+            /*
+            // your content is into a variable named 'content'
+            var fs = require('fs');
+            try { fs.writeFileSync('myfile.txt', content, 'utf-8'); }
+            catch(e) { alert('Failed to save the file !'); }
+            */
+        }
+
+        // function loadData() {
+
+        // }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Timer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="stylesheet" href="./lib/css/roundslider.min.css">
+
+    <script src="./lib/js/tasker.js"></script>
+    <script src="./lib/js/jquery.min.js"></script>
+    <script src="./lib/js/roundslider.min.js"></script>
+	<script src="./lib/js/masterLib.min.js"></script> -->
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "roundslider.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "roundslider.min.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+
+    <style>
+        .timeSlider .rs-range-color {
+            background-color: #2f9ec2;
+        }
+        
+        .timeSlider .rs-handle {
+            background-color: #2f9ec2;
+            border: 5px solid #2f9ec2;
+        }
+        
+        .timeSlider .rs-inner {
+            background-color: black;
+        }
+        
+        .timeSlider .rs-tooltip-text {
+            color: #2f9ec2;
+            font-weight: bold;
+            font-size: 3.5em;
+        }
+        
+        .timeSlider .rs-path-color {
+            background-color: #2f2f2f;
+        }
+        
+        .timeSlider .rs-border {
+            border: 0px;
+        }
+        
+        .btnStyle {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 97.5%;
+            height: 100%;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            overflow: hidden;
+            border: none;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+            font: normal 20px/normal "Antic", Helvetica, sans-serif;
+            color: rgba(0, 0, 0, 1);
+            text-decoration: normal;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+        
+        div {
+            margin: auto;
+        }
+        
+        button {
+            margin: auto;
+        }
+    </style>
+
+</head>
+
+<body style="background: black;" onresize="resizeElements()" onload="resizeElements()">
+
+    <table id="tableContainer" style="width: 100%;">
+        <tbody>
+            <tr style="height:70%">
+                <td>
+                    <div id="hourSlider" class="timeSlider"></div>
+                </td>
+                <td>
+                    <div id="minuteSlider" class="timeSlider"></div>
+                </td>
+            </tr>
+            <tr style="height: 20%;">
+                <td>
+                    <button id="exitBtn" class="btnStyle" style="background-color: darkred; color: white;" onclick="exitTimer()">Exit</button>
+                </td>
+                <td>
+                    <button id="startBtn" class="btnStyle" style="background-color: #2f9ec2; color: white;" onclick="startTimer()">Start</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+<script>
+    // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+    var hourBox;
+
+    function init() {
+        var hourBox = $("#hourSlider"),
+        minuteBox = $("#minuteSlider"),
+        startBox = $("#startBtn");
+
+        $("#hourSlider").roundSlider({
+            radius: 5,
+            width: 20,
+            handleSize: "+15",
+            sliderType: "min-range",
+            value: 0,
+            min: "0",
+            max: "23",
+        });
+
+        $("#minuteSlider").roundSlider({
+            radius: 5,
+            width: 20,
+            handleSize: "+15",
+            sliderType: "min-range",
+            value: 0,
+            min: "0",
+            max: "59",
+        });
+    }
+    
+    function resizeElements() {
+        var windowHeight, windowWidth,
+            maxSliderHeight, maxSliderWidth, sliderRadius;
+           
+        if (window.innerHeight) {
+            windowHeight = window.innerHeight - startBox.height();
+            windowWidth = window.innerWidth;
+            document.getElementById("tableContainer").style.height = String(windowHeight - 25) + "px";
+            maxSliderWidth = (windowWidth - (windowWidth / 10)) / 4;
+            maxSliderHeight = ((windowHeight - (windowHeight / 10)) / 2.5);
+            sliderRadius = maxSliderWidth < maxSliderHeight ? maxSliderWidth : maxSliderHeight;
+            $("#hourSlider").roundSlider({
+                radius: sliderRadius
+            });
+            $("#minuteSlider").roundSlider({
+                radius: sliderRadius
+            });
+        } else {
+            windowHeight = document.body.clientHeight - startBox.height();
+            windowWidth = document.body.clientWidth;
+            document.getElementById("tableContainer").style.height = String(document.body.clientHeight - 25) + "px";
+            maxSliderWidth = (windowWidth - (windowWidth / 10)) / 4;
+            maxSliderHeight = ((windowHeight - (windowHeight / 10)) / 2.5);
+            sliderRadius = maxSliderWidth < maxSliderHeight ? maxSliderWidth : maxSliderHeight;
+            $("#hourSlider").roundSlider({
+                radius: sliderRadius
+            });
+            $("#minuteSlider").roundSlider({
+                radius: sliderRadius
+            });
+        }
+
+        var fontSize;
+        if (windowHeight >= 600)
+            fontSize = "350";
+        else if (windowHeight >= 500 && windowHeight < 600)
+            fontSize = "250";
+        else if (windowHeight >= 400 && windowHeight < 500)
+            fontSize = "200";
+        else if (windowHeight >= 300 && windowHeight < 400)
+            fontSize = "150";
+        else if (windowHeight >= 200 && windowHeight < 300)
+            fontSize = "100";
+        else if (windowHeight >= 100 && windowHeight < 200)
+            fontSize = "50";
+        else
+            fontSize = "25";
+
+        //document.getElementById("hourSlider").style.fontSize = fontSize + "px";
+        //document.getElementById("minuteSlider").style.fontSize = fontSize + "px";
+    }
+
+    function startTimer() {
+        var hourValue = parseInt(hourBox.text());
+        var minuteValue = parseInt(minuteBox.text());
+        var minute = 60000;
+        var hour = 60 * minute;
+        var now = new Date();
+        //var dstOffset, zoneOffset;
+
+        hourValue *= hour;
+        minuteValue *= minute;
+        //zoneOffset = now.getTimezoneOffset() * minute;
+        //dstOffset = isDST(now) * hour;
+
+        now = new Date(now.getTime() + hourValue + minuteValue);
+        console.log(now, hourBox.text(), hourValue, minuteBox.text(), minuteValue);
+        setAlarm(now.getHours(), now.getMinutes(), "Timer v3 Alarm", false);
+        exitTimer();
+    }
+
+    function exitTimer() {
+        destroyScene("Timer Scene");
+    }
+</script>
+
+</html>

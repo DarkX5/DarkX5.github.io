@@ -1,0 +1,83 @@
+<TaskerData sr="" dvi="1" tv="5.0u6m">
+	<Task sr="task124">
+		<cdate>1506379983023</cdate>
+		<edate>1506380450682</edate>
+		<id>124</id>
+		<nme>Temp</nme>
+		<Action sr="act0" ve="7">
+			<code>547</code>
+			<label>master library .js</label>
+			<Str sr="arg0" ve="3">%libraryjs</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere...</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>547</code>
+			<label>jquery 3.1.1 .js</label>
+			<Str sr="arg0" ve="3">%jquerylib</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere... 2</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>547</code>
+			<label>image .js</label>
+			<Str sr="arg0" ve="3">%imagejs</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere... 3</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>547</code>
+			<label>char data .js</label>
+			<Str sr="arg0" ve="3">%chardatajs</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere... 4</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>547</code>
+			<label>master .css</label>
+			<Str sr="arg0" ve="3">%mastercss</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere... 5</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>547</code>
+			<label>master .js</label>
+			<Str sr="arg0" ve="3">%masterjs</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere... 6</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>547</code>
+			<label>index .html</label>
+			<Str sr="arg0" ve="3">%htmlcontent</Str>
+			<Str sr="arg1" ve="3">test valueds goes 'ere... starting
+%chardatajs
+%imagejs
+%jquerylib
+%libraryjs
+%mastercss
+%masterjs
+test valueds goes 'ere... ending...</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3">%htmlcontent</Str>
+			<Int sr="arg1" val="1"/>
+		</Action>
+	</Task>
+</TaskerData>

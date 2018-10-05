@@ -1,0 +1,6 @@
+/mnt/sdcard 
+/sdcard 
+/sdcard-ext 
+/storage/sdcard0
+/storage/sdcard1
+/storage/sdcard2

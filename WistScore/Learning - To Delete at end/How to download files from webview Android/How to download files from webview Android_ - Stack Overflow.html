@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>How to download files from webview Android? - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How to download files from webview Android?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="My code below loads the url page fine and after searching for a song when I click on the download link it crashes. There aren&#39;t so much tutorials on how to get the download manager to work with a w...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android">
+    <link rel="canonical" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android">
+
+    
+    
+    <script async="" src="http://edge.quantserve.com/quant.js"></script><script async="" src="http://b.scorecardresearch.com/beacon.js"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="./How to download files from webview Android_ - Stack Overflow_files/ados.js.download"></script><script src="./How to download files from webview Android_ - Stack Overflow_files/jquery.min.js.download"></script>
+    <script src="./How to download files from webview Android_ - Stack Overflow_files/stub.en.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./How to download files from webview Android_ - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How to download files from webview Android?&#39;" href="http://stackoverflow.com/feeds/question/21864098">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:21864098});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '21864098');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script><style type="text/css">
+:root div[id^="adzerk"],
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle
+{ display: none !important; }</style><style type="text/css">iframe[src="https://ssum-sec.casalemedia.com/usermatch?s=183712&cb=https%3A%2F%2Fengine.adzerk.net%2Fudb%2F22%2Fsync%2Fi.gif%3FpartnerId%3D1%26userId%3D"],
+img[src="https://clc.stackoverflow.com/timeout.gif"]
+{display:none !important;}</style>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1492028880,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"http"},"user":{"fkey":"b9c06bf9b4edb668864b4ba25c14a40d","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"d5c90f61ba6b","js/moderator.en.js":"40864e2316e3","js/full-anon.en.js":"8095d35d894a","js/full.en.js":"063e9fdaf911","js/wmd.en.js":"8d765087c422","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"978c4e09340e","js/help.en.js":"a56fdf9b9ff2","js/tageditor.en.js":"235a2acc7d79","js/tageditornew.en.js":"f925995c6474","js/inline-tag-editing.en.js":"2ddfa79492e7","js/revisions.en.js":"47de10a8358f","js/review.en.js":"4ed5ca499478","js/tagsuggestions.en.js":"2a9fc67ea337","js/post-validation.en.js":"e68611e12bf6","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"06ec9785e44d","js/keyboard-shortcuts.en.js":"acdcceb784f4","js/external-editor.en.js":"e574ed908cf3","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"e574ed908cf3","js/snippet-javascript.en.js":"8398bcc7e346","js/snippet-javascript-codemirror.en.js":"8533baaffbba"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style type="text/css"&gt;body,.so-header{margin-top:1.9em}&lt;/style&gt;</noscript>
+<script async="" src="./How to download files from webview Android_ - Stack Overflow_files/full-anon.en.js.download"></script><script async="" src="./How to download files from webview Android_ - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./How to download files from webview Android_ - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./How to download files from webview Android_ - Stack Overflow_files/prettify-full.en.js.download"></script><script async="" src="./How to download files from webview Android_ - Stack Overflow_files/external-editor.en.js.download"></script><style type="text/css">
+:root *[ql4rj8p][hidden] { display: none !important; }</style></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        <iframe id="adzerk-user-match" width="0" height="0" frameborder="0" scrolling="no" onload="window.AUMIframeDone=true" src="./How to download files from webview Android_ - Stack Overflow_files/usermatch.html" style="display: none !important;" marginheight="0" marginwidth="0" hidden=""></iframe>
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="http://stackoverflow.com/" class="-logo ">
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="http://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="http://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="http://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="http://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+            <form id="search" action="http://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                <input name="q" type="text" placeholder="Search..." value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                <button type="submit" class="btn js-search-submit">
+                    <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M12.864 11.32h-.813l-.288-.277A6.66 6.66 0 0 0 13.38 6.69a6.69 6.69 0 1 0-6.69 6.69 6.66 6.66 0 0 0 4.354-1.617l.278.288v.813L16.467 18 18 16.467l-5.136-5.146zm-6.174 0a4.625 4.625 0 0 1-4.632-4.63A4.625 4.625 0 0 1 6.69 2.058a4.625 4.625 0 0 1 4.63 4.632 4.625 4.625 0 0 1-4.63 4.63z"></path></svg>
+                </button>
+            </form>
+
+        </div>
+        
+
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="http://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f21864098%2fhow-to-download-files-from-webview-android" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+            
+    <li class="-item"><a href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#" class="-link js-help-button" title="Help Center and other resources">
+        <svg viewBox="0 0 18 18" width="18" height="18" role="icon"><path fill-rule="evenodd" d="M9 0a9 9 0 1 0 .001 18.001A9 9 0 0 0 9 0zm.812 13.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 167 Stack Exchange sites">
+            <svg viewBox="0 0 18 19" width="18" height="19" role="icon"><path fill-rule="evenodd" d="M0 14a2 2 0 0 0 2 2h10v3l3-3h1a2 2 0 0 0 2-2v-2H0v2zM16 0H2a2 2 0 0 0-2 2v2h18V2a2 2 0 0 0-2-2zM0 6h18v4H0V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                    <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f21864098%2fhow-to-download-files-from-webview-android" class="login-link btn-clear" rel="nofollow">Log In</a>
+                        <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.0 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android" class="question-hyperlink">How to download files from webview Android?</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="http://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="21864098" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk2097763516",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk2097763516" ql4rj8p="" hidden=""></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="21864098">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">10</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#">favorite</a>
+        <div class="favoritecount"><b>3</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>My code below loads the url page fine and after searching for a song when I click on the download link it crashes. There aren't so much tutorials on how to get the download manager to work with a webview. What am I doing wrong?</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">io</span><span class="pun">.</span><span class="typ">File</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">app</span><span class="pun">.</span><span class="typ">Activity</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">app</span><span class="pun">.</span><span class="typ">DownloadManager</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">content</span><span class="pun">.</span><span class="typ">Context</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">net</span><span class="pun">.</span><span class="typ">Uri</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">os</span><span class="pun">.</span><span class="typ">Bundle</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">os</span><span class="pun">.</span><span class="typ">Environment</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">webkit</span><span class="pun">.</span><span class="typ">WebView</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">webkit</span><span class="pun">.</span><span class="typ">WebViewClient</span><span class="pun">;</span><span class="pln">
+
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">List1</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Activity</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+        </span><span class="typ">WebView</span><span class="pln"> ourBrow</span><span class="pun">;</span><span class="pln">
+
+
+    </span><span class="lit">@Override</span><span class="pln">
+    </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onCreate</span><span class="pun">(</span><span class="typ">Bundle</span><span class="pln"> savedInstanceState</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">super</span><span class="pun">.</span><span class="pln">onCreate</span><span class="pun">(</span><span class="pln">savedInstanceState</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="com">// Use a custom layout file</span><span class="pln">
+        setContentView</span><span class="pun">(</span><span class="pln">R</span><span class="pun">.</span><span class="pln">layout</span><span class="pun">.</span><span class="pln">list1</span><span class="pun">);</span><span class="pln">
+
+        </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">DownloadManager</span><span class="pln"> manager </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">DownloadManager</span><span class="pun">)</span><span class="pln"> getSystemService</span><span class="pun">(</span><span class="typ">Context</span><span class="pun">.</span><span class="pln">DOWNLOAD_SERVICE</span><span class="pun">);</span><span class="pln">
+
+     </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">File</span><span class="pln"> destinationDir </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">File</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Environment</span><span class="pun">.</span><span class="pln">getExternalStorageDirectory</span><span class="pun">(),</span><span class="pln"> getPackageName</span><span class="pun">());</span><span class="pln">
+     </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(!</span><span class="pln">destinationDir</span><span class="pun">.</span><span class="pln">exists</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         destinationDir</span><span class="pun">.</span><span class="pln">mkdir</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Don't forget to make the directory if it's not there</span><span class="pln">
+     </span><span class="pun">}</span><span class="pln">
+
+        ourBrow </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">WebView</span><span class="pun">)</span><span class="pln"> findViewById</span><span class="pun">(</span><span class="pln">R</span><span class="pun">.</span><span class="pln">id</span><span class="pun">.</span><span class="pln">wvBrowser</span><span class="pun">);</span><span class="pln">
+        ourBrow</span><span class="pun">.</span><span class="pln">getSettings</span><span class="pun">().</span><span class="pln">setJavaScriptEnabled</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+        ourBrow</span><span class="pun">.</span><span class="pln">setInitialScale</span><span class="pun">(</span><span class="lit">50</span><span class="pun">);</span><span class="pln"> 
+        ourBrow</span><span class="pun">.</span><span class="pln">getSettings</span><span class="pun">().</span><span class="pln">setUseWideViewPort</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln"> 
+        ourBrow</span><span class="pun">.</span><span class="pln">setVerticalScrollBarEnabled</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+        ourBrow</span><span class="pun">.</span><span class="pln">setHorizontalScrollBarEnabled</span><span class="pun">(</span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+        ourBrow</span><span class="pun">.</span><span class="pln">loadUrl</span><span class="pun">(</span><span class="str">"http://www.degjo.com"</span><span class="pun">);</span><span class="pln">
+
+
+
+        ourBrow</span><span class="pun">.</span><span class="pln">setWebViewClient</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">WebViewClient</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="lit">@Override</span><span class="pln">
+            </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> shouldOverrideUrlLoading </span><span class="pun">(</span><span class="typ">WebView</span><span class="pln"> view</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="kwd">boolean</span><span class="pln"> shouldOverride </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">;</span><span class="pln">
+                </span><span class="com">// We only want to handle requests for mp3 files, everything else the webview</span><span class="pln">
+                </span><span class="com">// can handle normally</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">url</span><span class="pun">.</span><span class="pln">endsWith</span><span class="pun">(</span><span class="str">".mp3"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    shouldOverride </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+                    </span><span class="typ">Uri</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Uri</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span><span class="pln">
+
+                    </span><span class="com">// Make a new request pointing to the mp3 url</span><span class="pln">
+                    </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pun">(</span><span class="pln">source</span><span class="pun">);</span><span class="pln">
+                    </span><span class="com">// Use the same file name for the destination</span><span class="pln">
+                    </span><span class="typ">File</span><span class="pln"> destinationFile </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">File</span><span class="pln"> </span><span class="pun">(</span><span class="pln">destinationDir</span><span class="pun">,</span><span class="pln"> source</span><span class="pun">.</span><span class="pln">getLastPathSegment</span><span class="pun">());</span><span class="pln">
+                    request</span><span class="pun">.</span><span class="pln">setDestinationUri</span><span class="pun">(</span><span class="typ">Uri</span><span class="pun">.</span><span class="pln">fromFile</span><span class="pun">(</span><span class="pln">destinationFile</span><span class="pun">));</span><span class="pln">
+                    </span><span class="com">// Add it to the manager</span><span class="pln">
+                    manager</span><span class="pun">.</span><span class="pln">enqueue</span><span class="pun">(</span><span class="pln">request</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> shouldOverride</span><span class="pun">;</span><span class="pln">
+            </span><span class="pun">}</span><span class="pln">
+        </span><span class="pun">});</span><span class="pln">
+
+
+
+
+
+    </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>LogCat</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">content</span><span class="pun">.</span><span class="typ">ContentProviderProxy</span><span class="pun">.</span><span class="pln">insert</span><span class="pun">(</span><span class="typ">ContentProviderNative</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">408</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">content</span><span class="pun">.</span><span class="typ">ContentResolver</span><span class="pun">.</span><span class="pln">insert</span><span class="pun">(</span><span class="typ">ContentResolver</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">604</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">app</span><span class="pun">.</span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="pln">enqueue</span><span class="pun">(</span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">750</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at com</span><span class="pun">.</span><span class="pln">example</span><span class="pun">.</span><span class="pln">androidbuttonsactivities</span><span class="pun">.</span><span class="typ">List1$1</span><span class="pun">.</span><span class="pln">shouldOverrideUrlLoading</span><span class="pun">(</span><span class="typ">List1</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">78</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">webkit</span><span class="pun">.</span><span class="typ">CallbackProxy</span><span class="pun">.</span><span class="pln">uiOverrideUrlLoading</span><span class="pun">(</span><span class="typ">CallbackProxy</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">216</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">webkit</span><span class="pun">.</span><span class="typ">CallbackProxy</span><span class="pun">.</span><span class="pln">handleMessage</span><span class="pun">(</span><span class="typ">CallbackProxy</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">323</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">os</span><span class="pun">.</span><span class="typ">Handler</span><span class="pun">.</span><span class="pln">dispatchMessage</span><span class="pun">(</span><span class="typ">Handler</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">99</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">os</span><span class="pun">.</span><span class="typ">Looper</span><span class="pun">.</span><span class="pln">loop</span><span class="pun">(</span><span class="typ">Looper</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">123</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at android</span><span class="pun">.</span><span class="pln">app</span><span class="pun">.</span><span class="typ">ActivityThread</span><span class="pun">.</span><span class="pln">main</span><span class="pun">(</span><span class="typ">ActivityThread</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">3683</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="pln">reflect</span><span class="pun">.</span><span class="typ">Method</span><span class="pun">.</span><span class="pln">invokeNative</span><span class="pun">(</span><span class="typ">Native</span><span class="pln"> </span><span class="typ">Method</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.</span><span class="pln">reflect</span><span class="pun">.</span><span class="typ">Method</span><span class="pun">.</span><span class="pln">invoke</span><span class="pun">(</span><span class="typ">Method</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">507</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at com</span><span class="pun">.</span><span class="pln">android</span><span class="pun">.</span><span class="kwd">internal</span><span class="pun">.</span><span class="pln">os</span><span class="pun">.</span><span class="typ">ZygoteInit$MethodAndArgsCaller</span><span class="pun">.</span><span class="pln">run</span><span class="pun">(</span><span class="typ">ZygoteInit</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">839</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at com</span><span class="pun">.</span><span class="pln">android</span><span class="pun">.</span><span class="kwd">internal</span><span class="pun">.</span><span class="pln">os</span><span class="pun">.</span><span class="typ">ZygoteInit</span><span class="pun">.</span><span class="pln">main</span><span class="pun">(</span><span class="typ">ZygoteInit</span><span class="pun">.</span><span class="pln">java</span><span class="pun">:</span><span class="lit">597</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">44.891</span><span class="pun">:</span><span class="pln"> E</span><span class="pun">/</span><span class="typ">AndroidRuntime</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln">  at dalvik</span><span class="pun">.</span><span class="pln">system</span><span class="pun">.</span><span class="typ">NativeStart</span><span class="pun">.</span><span class="pln">main</span><span class="pun">(</span><span class="typ">Native</span><span class="pln"> </span><span class="typ">Method</span><span class="pun">)</span><span class="pln">
+</span><span class="lit">02</span><span class="pun">-</span><span class="lit">18</span><span class="pln"> </span><span class="lit">19</span><span class="pun">:</span><span class="lit">45</span><span class="pun">:</span><span class="lit">48.401</span><span class="pun">:</span><span class="pln"> I</span><span class="pun">/</span><span class="typ">Process</span><span class="pun">(</span><span class="lit">357</span><span class="pun">):</span><span class="pln"> </span><span class="typ">Sending</span><span class="pln"> signal</span><span class="pun">.</span><span class="pln"> PID</span><span class="pun">:</span><span class="pln"> </span><span class="lit">357</span><span class="pln"> SIG</span><span class="pun">:</span><span class="pln"> </span><span class="lit">9</span></code></pre>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/android" class="post-tag js-gps-track" title="show questions tagged &#39;android&#39;" rel="tag"><img src="./How to download files from webview Android_ - Stack Overflow_files/tKsDb.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="http://stackoverflow.com/questions/tagged/webview" class="post-tag js-gps-track" title="show questions tagged &#39;webview&#39;" rel="tag">webview</a> <a href="http://stackoverflow.com/questions/tagged/android-download-manager" class="post-tag js-gps-track" title="show questions tagged &#39;android-download-manager&#39;" rel="tag">android-download-manager</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/21864098" title="short permalink to this question" class="short-link" id="link-post-21864098">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/21864098/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/21864098/revisions" title="show all edits to this post">edited <span title="2014-02-18 20:16:15Z" class="relativetime">Feb 18 '14 at 20:16</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2014-02-18 20:01:34Z" class="relativetime">Feb 18 '14 at 20:01</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2004134/dritan-berna"><div class="gravatar-wrapper-32"><img src="./How to download files from webview Android_ - Stack Overflow_files/d1c3a6868690508bd2179d8f113dacf5" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2004134/dritan-berna">Dritan Berna</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">88</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="11 bronze badges"><span class="badge3"></span><span class="badgecount">11</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-21864098" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-33101065" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What does the logcat say about the crash?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1069068/raghav-sood" title="62,313 reputation" class="comment-user">Raghav Sood</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment33101065_21864098"><span title="2014-02-18 20:10:22Z" class="relativetime-clean">Feb 18 '14 at 20:10</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-21864098" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="21898885"></a>
+<div id="answer-21898885" class="answer accepted-answer" data-answerid="21898885" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="21898885">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">12</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>It may be depends on the android build version problem, the below code will work successfully on 2.3+ builds, check this out,</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">ourBrow</span><span class="pun">.</span><span class="pln">setWebViewClient</span><span class="pun">(</span><span class="kwd">new</span><span class="pln"> </span><span class="typ">WebViewClient</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="lit">@Override</span><span class="pln">
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> onReceivedError</span><span class="pun">(</span><span class="typ">WebView</span><span class="pln"> view</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> errorCode</span><span class="pun">,</span><span class="pln">
+            </span><span class="typ">String</span><span class="pln"> description</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> failingUrl</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="typ">Log</span><span class="pun">.</span><span class="pln">d</span><span class="pun">(</span><span class="str">"WEB_VIEW_TEST"</span><span class="pun">,</span><span class="pln"> </span><span class="str">"error code:"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> errorCode </span><span class="pun">+</span><span class="pln"> </span><span class="str">" - "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> description</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+
+        </span><span class="lit">@Override</span><span class="pln">
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">boolean</span><span class="pln"> shouldOverrideUrlLoading</span><span class="pun">(</span><span class="typ">WebView</span><span class="pln"> view</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> url</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                </span><span class="com">// handle different requests for different type of files</span><span class="pln">
+                </span><span class="com">// this example handles downloads requests for .apk and .mp3 files</span><span class="pln">
+                </span><span class="com">// everything else the webview can handle normally</span><span class="pln">
+                </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">url</span><span class="pun">.</span><span class="pln">endsWith</span><span class="pun">(</span><span class="str">".apk"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="typ">Uri</span><span class="pln"> source </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Uri</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span><span class="pln">
+                    </span><span class="com">// Make a new request pointing to the .apk url</span><span class="pln">
+                    </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pln"> request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pun">(</span><span class="pln">source</span><span class="pun">);</span><span class="pln">
+                    </span><span class="com">// appears the same in Notification bar while downloading</span><span class="pln">
+                    request</span><span class="pun">.</span><span class="pln">setDescription</span><span class="pun">(</span><span class="str">"Description for the DownloadManager Bar"</span><span class="pun">);</span><span class="pln">
+                    request</span><span class="pun">.</span><span class="pln">setTitle</span><span class="pun">(</span><span class="str">"YourApp.apk"</span><span class="pun">);</span><span class="pln">
+                    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Build</span><span class="pun">.</span><span class="pln">VERSION</span><span class="pun">.</span><span class="pln">SDK_INT </span><span class="pun">&gt;=</span><span class="pln"> </span><span class="typ">Build</span><span class="pun">.</span><span class="pln">VERSION_CODES</span><span class="pun">.</span><span class="pln">HONEYCOMB</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                        request</span><span class="pun">.</span><span class="pln">allowScanningByMediaScanner</span><span class="pun">();</span><span class="pln">
+                        request</span><span class="pun">.</span><span class="pln">setNotificationVisibility</span><span class="pun">(</span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pun">.</span><span class="pln">VISIBILITY_VISIBLE_NOTIFY_COMPLETED</span><span class="pun">);</span><span class="pln">
+                    </span><span class="pun">}</span><span class="pln">
+                    </span><span class="com">// save the file in the "Downloads" folder of SDCARD</span><span class="pln">
+                    request</span><span class="pun">.</span><span class="pln">setDestinationInExternalPublicDir</span><span class="pun">(</span><span class="typ">Environment</span><span class="pun">.</span><span class="pln">DIRECTORY_DOWNLOADS</span><span class="pun">,</span><span class="pln"> </span><span class="str">"SmartPigs.apk"</span><span class="pun">);</span><span class="pln">
+                    </span><span class="com">// get download service and enqueue file</span><span class="pln">
+                    </span><span class="typ">DownloadManager</span><span class="pln"> manager </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">DownloadManager</span><span class="pun">)</span><span class="pln"> getSystemService</span><span class="pun">(</span><span class="typ">Context</span><span class="pun">.</span><span class="pln">DOWNLOAD_SERVICE</span><span class="pun">);</span><span class="pln">
+                    manager</span><span class="pun">.</span><span class="pln">enqueue</span><span class="pun">(</span><span class="pln">request</span><span class="pun">);</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">url</span><span class="pun">.</span><span class="pln">endsWith</span><span class="pun">(</span><span class="str">".mp3"</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+                    </span><span class="com">// if the link points to an .mp3 resource do something else</span><span class="pln">
+                </span><span class="pun">}</span><span class="pln">
+                </span><span class="com">// if there is a link to anything else than .apk or .mp3 load the URL in the webview</span><span class="pln">
+                </span><span class="kwd">else</span><span class="pln"> view</span><span class="pun">.</span><span class="pln">loadUrl</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span><span class="pln">
+                </span><span class="kwd">return</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">                
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">});</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/21898885" title="short permalink to this answer" class="short-link" id="link-post-21898885">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/21898885/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-02-20 05:24:00Z" class="relativetime">Feb 20 '14 at 5:24</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3209701/brendon"><div class="gravatar-wrapper-32"><img src="./How to download files from webview Android_ - Stack Overflow_files/f9fb346dd054babb53a848586ef2f7b4" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3209701/brendon">Brendon</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">715</span><span title="7 silver badges"><span class="badge2"></span><span class="badgecount">7</span></span><span title="23 bronze badges"><span class="badge3"></span><span class="badgecount">23</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-21898885" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-33171314" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">honeycomb,allowScanningByMediaScanner and VISIBILITY_VISIBLE_NOTIFY_COMPLETED can't get resolved. I'm testing the app on my emulator version 2.3.3,should I create some sort of downloads folder for this to work?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2004134/dritan-berna" title="88 reputation" class="comment-user owner">Dritan Berna</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment33171314_21898885"><span title="2014-02-20 09:33:35Z" class="relativetime-clean">Feb 20 '14 at 9:33</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 2 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-33175828" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">No need to create downloads folder.. it will download for sure. try with higher versions emulator, else change your manifest file min sdk to latest and try</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3209701/brendon" title="715 reputation" class="comment-user">Brendon</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment33175828_21898885"><span title="2014-02-20 11:22:45Z" class="relativetime-clean">Feb 20 '14 at 11:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-21898885" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1340461711",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1340461711" ql4rj8p="" hidden=""></div>
+  
+<a name="21869417"></a>
+<div id="answer-21869417" class="answer" data-answerid="21869417" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="21869417">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Did you add DownloadManager Permission in your manifest file?</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="tag">&lt;uses-permission</span><span class="pln"> </span><span class="atn">android:name</span><span class="pun">=</span><span class="atv">"android.permission.ACCESS_DOWNLOAD_MANAGER"</span><span class="tag">/&gt;</span></code></pre>
+
+<p><strong>-----EDIT-----</strong></p>
+
+<p>I'm copying some code snippet for your reference from Android stock browser on starting a download task:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> android</span><span class="pun">.</span><span class="pln">net</span><span class="pun">.</span><span class="typ">WebAddress</span><span class="pun">;</span><span class="pln">
+
+</span><span class="com">// java.net.URI is a lot stricter than KURL so we have to encode some</span><span class="pln">
+</span><span class="com">// extra characters. Fix for b 2538060 and b 1634719</span><span class="pln">
+</span><span class="typ">WebAddress</span><span class="pln"> webAddress</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    webAddress </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">WebAddress</span><span class="pun">(</span><span class="pln">url</span><span class="pun">);</span><span class="pln">
+    webAddress</span><span class="pun">.</span><span class="pln">setPath</span><span class="pun">(</span><span class="pln">encodePath</span><span class="pun">(</span><span class="pln">webAddress</span><span class="pun">.</span><span class="pln">getPath</span><span class="pun">()));</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// This only happens for very bad urls, we want to chatch the</span><span class="pln">
+    </span><span class="com">// exception here</span><span class="pln">
+    </span><span class="typ">Log</span><span class="pun">.</span><span class="pln">e</span><span class="pun">(</span><span class="pln">LOGTAG</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Exception trying to parse url:"</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> url</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="typ">String</span><span class="pln"> addressString </span><span class="pun">=</span><span class="pln"> webAddress</span><span class="pun">.</span><span class="pln">toString</span><span class="pun">();</span><span class="pln">
+</span><span class="typ">Uri</span><span class="pln"> uri </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Uri</span><span class="pun">.</span><span class="pln">parse</span><span class="pun">(</span><span class="pln">addressString</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">final</span><span class="pln"> </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pln"> request</span><span class="pun">;</span><span class="pln">
+</span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    request </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pun">(</span><span class="pln">uri</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IllegalArgumentException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="typ">Toast</span><span class="pun">.</span><span class="pln">makeText</span><span class="pun">(</span><span class="pln">activity</span><span class="pun">,</span><span class="pln"> R</span><span class="pun">.</span><span class="kwd">string</span><span class="pun">.</span><span class="pln">cannot_download</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Toast</span><span class="pun">.</span><span class="pln">LENGTH_SHORT</span><span class="pun">).</span><span class="pln">show</span><span class="pun">();</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">setMimeType</span><span class="pun">(</span><span class="pln">mimetype</span><span class="pun">);</span><span class="pln">
+</span><span class="com">// set downloaded file destination to /sdcard/Download.</span><span class="pln">
+</span><span class="com">// or, should it be set to one of several Environment.DIRECTORY* dirs depending on mimetype?</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">setDestinationInExternalPublicDir</span><span class="pun">(</span><span class="typ">Environment</span><span class="pun">.</span><span class="pln">DIRECTORY_DOWNLOADS</span><span class="pun">,</span><span class="pln"> filename</span><span class="pun">);</span><span class="pln">
+</span><span class="com">// let this downloaded file be scanned by MediaScanner - so that it can </span><span class="pln">
+</span><span class="com">// show up in Gallery app, for example.</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">allowScanningByMediaScanner</span><span class="pun">();</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">setDescription</span><span class="pun">(</span><span class="pln">webAddress</span><span class="pun">.</span><span class="pln">getHost</span><span class="pun">());</span><span class="pln">
+</span><span class="com">// XXX: Have to use the old url since the cookies were stored using the</span><span class="pln">
+</span><span class="com">// old percent-encoded url.</span><span class="pln">
+</span><span class="typ">String</span><span class="pln"> cookies </span><span class="pun">=</span><span class="pln"> </span><span class="typ">CookieManager</span><span class="pun">.</span><span class="pln">getInstance</span><span class="pun">().</span><span class="pln">getCookie</span><span class="pun">(</span><span class="pln">url</span><span class="pun">,</span><span class="pln"> privateBrowsing</span><span class="pun">);</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">addRequestHeader</span><span class="pun">(</span><span class="str">"cookie"</span><span class="pun">,</span><span class="pln"> cookies</span><span class="pun">);</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">addRequestHeader</span><span class="pun">(</span><span class="str">"User-Agent"</span><span class="pun">,</span><span class="pln"> userAgent</span><span class="pun">);</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">addRequestHeader</span><span class="pun">(</span><span class="str">"Referer"</span><span class="pun">,</span><span class="pln"> referer</span><span class="pun">);</span><span class="pln">
+request</span><span class="pun">.</span><span class="pln">setNotificationVisibility</span><span class="pun">(</span><span class="pln">
+        </span><span class="typ">DownloadManager</span><span class="pun">.</span><span class="typ">Request</span><span class="pun">.</span><span class="pln">VISIBILITY_VISIBLE_NOTIFY_COMPLETED</span><span class="pun">);</span><span class="pln">
+</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">mimetype </span><span class="pun">==</span><span class="pln"> </span><span class="kwd">null</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="typ">TextUtils</span><span class="pun">.</span><span class="pln">isEmpty</span><span class="pun">(</span><span class="pln">addressString</span><span class="pun">))</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">return</span><span class="pun">;</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+    </span><span class="com">// We must have long pressed on a link or image to download it. We</span><span class="pln">
+    </span><span class="com">// are not sure of the mimetype in this case, so do a head request</span><span class="pln">
+    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">FetchUrlMimeType</span><span class="pun">(</span><span class="pln">activity</span><span class="pun">,</span><span class="pln"> request</span><span class="pun">,</span><span class="pln"> addressString</span><span class="pun">,</span><span class="pln"> cookies</span><span class="pun">,</span><span class="pln">
+            userAgent</span><span class="pun">).</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="kwd">final</span><span class="pln"> </span><span class="typ">DownloadManager</span><span class="pln"> manager
+            </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="typ">DownloadManager</span><span class="pun">)</span><span class="pln"> activity</span><span class="pun">.</span><span class="pln">getSystemService</span><span class="pun">(</span><span class="typ">Context</span><span class="pun">.</span><span class="pln">DOWNLOAD_SERVICE</span><span class="pun">);</span><span class="pln">
+    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">(</span><span class="str">"Browser download"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            manager</span><span class="pun">.</span><span class="pln">enqueue</span><span class="pun">(</span><span class="pln">request</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="pln">
+    </span><span class="pun">}.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="typ">Toast</span><span class="pun">.</span><span class="pln">makeText</span><span class="pun">(</span><span class="pln">activity</span><span class="pun">,</span><span class="pln"> R</span><span class="pun">.</span><span class="kwd">string</span><span class="pun">.</span><span class="pln">download_pending</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Toast</span><span class="pun">.</span><span class="pln">LENGTH_SHORT</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">.</span><span class="pln">show</span><span class="pun">();</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/21869417" title="short permalink to this answer" class="short-link" id="link-post-21869417">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/21869417/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/21869417/revisions" title="show all edits to this post">edited <span title="2014-06-20 07:52:16Z" class="relativetime">Jun 20 '14 at 7:52</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-02-19 01:53:39Z" class="relativetime">Feb 19 '14 at 1:53</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3121246/wei-wang"><div class="gravatar-wrapper-32"><img src="./How to download files from webview Android_ - Stack Overflow_files/04c286b392620ef4f0fb1828f1f12e39" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3121246/wei-wang">Wei WANG</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">517</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="12 bronze badges"><span class="badge3"></span><span class="badgecount">12</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-21869417" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-33122134" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">after adding this permission the same thing happend ,crashed again.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2004134/dritan-berna" title="88 reputation" class="comment-user owner">Dritan Berna</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment33122134_21869417"><span title="2014-02-19 09:26:50Z" class="relativetime-clean">Feb 19 '14 at 9:26</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-33127699" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">added also WRITE_EXTERNAL_STORAGE to my Manifest Now it Doesnt crash but just shows a second the download notification and disappears</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2004134/dritan-berna" title="88 reputation" class="comment-user owner">Dritan Berna</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment33127699_21869417"><span title="2014-02-19 11:39:19Z" class="relativetime-clean">Feb 19 '14 at 11:39</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-33162083" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It may help if you can provide more logcat information. e.g. a few lines before the first line you have posted (so that we can know exactly what the problem is): <code>02-18 19:45:44.891: E/AndroidRuntime(357):  at android.content.ContentProviderProxy.insert(ContentProviderN‌​ative.java:408)</code></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3121246/wei-wang" title="517 reputation" class="comment-user">Wei WANG</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment33162083_21869417"><span title="2014-02-20 04:19:32Z" class="relativetime-clean">Feb 20 '14 at 4:19</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-37470817" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">what is webAddress?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1868680/coronapintu" title="1,057 reputation" class="comment-user">CoronaPintu</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment37470817_21869417"><span title="2014-06-17 06:18:39Z" class="relativetime-clean">Jun 17 '14 at 6:18</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-37594928" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@CoronaPintu : It's from <i>android.net.WebAddress</i>. Just updated the post to avoid confusion.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3121246/wei-wang" title="517 reputation" class="comment-user">Wei WANG</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#comment37594928_21869417"><span title="2014-06-20 07:53:13Z" class="relativetime-clean">Jun 20 '14 at 7:53</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-21869417" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/21864098/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="21864098">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.ro/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="b9c06bf9b4edb668864b4ba25c14a40d">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f21864098%2fhow-to-download-files-from-webview-android%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f21864098%2fhow-to-download-files-from-webview-android%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/android" class="post-tag" title="show questions tagged &#39;android&#39;" rel="tag"><img src="./How to download files from webview Android_ - Stack Overflow_files/tKsDb.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="http://stackoverflow.com/questions/tagged/webview" class="post-tag" title="show questions tagged &#39;webview&#39;" rel="tag">webview</a> <a href="http://stackoverflow.com/questions/tagged/android-download-manager" class="post-tag" title="show questions tagged &#39;android-download-manager&#39;" rel="tag">android-download-manager</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2014-02-18 20:01:34Z"><b>3 years, 1 month ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>21632 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/21864098/how-to-download-files-from-webview-android?lastactivity" class="lastactivity-link" title="2014-06-22 20:51:37Z">2 years, 9 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk190491227",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk190491227" ql4rj8p="" hidden=""></div>
+            <div id="hireme"></div>
+        <script>
+window.clc_request = 'AkU1uWnigdQIAAAAAKKeTQECAAAAAgAAAAAqAAAAfGFuZHJvaWR8d2Vidmlld3xhbmRyb2lkLWRvd25sb2FkLW1hbmFnZXJ8AHwLGWzJK3agaWM';
+;(function(n){var t,u,r,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(n.allowed[0]!=="*"&&n.allowed.indexOf(location.hostname)===-1)return;if(t=window,t.clc=t.clc||{},u=t.clc_request||t.clcfl_request,t.clc.init=t.clc.init||[],t.clc.init.push(function(n){return n.load()}),t.clc.options){for(r in t.clc.options)n[r]=t.clc.options[r];t.clc.options=n}else t.clc.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(f){console.error("[clc] Error in loader:",f)}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","blog.codinghorror.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"https://clc.stackoverflow.com/markup.js","lib":"https://cdn.sstatic.net/clc/clc.min.js?v=2b0a42a6cd1f"});        </script>
+			<div style="margin-bottom: 10px;">
+        
+
+<script>
+    StackExchange.ready(function () {
+        StackExchange.newsletterAd.init();
+    });
+</script>
+
+<div id="newsletter-ad">
+        <p id="newsletter-ad-header">Get the <b>weekly newsletter!</b> In it, you'll get:</p>
+        <ul>
+            <li>The week's top questions and answers</li>
+            <li>Important community announcements</li>
+            <li>Questions that need answers</li>
+        </ul>
+    <div id="newsletter-signup-container"><input id="newsletter-signup" type="button" value="Sign up for the newsletter"></div>
+    <p id="newsletter-preview-container">see an <a href="https://stackexchange.com/newsletters/newsletter?site=stackoverflow.com" id="newsletter-preview">example newsletter</a></p>
+    <div class="dno">
+        
+<p class="privacy-policy-agreement">
+By subscribing, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">
+    </div>
+</div>
+
+    </div>
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/24360550?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/24360550/android-webview-cannot-download-files?noredirect=1&amp;lq=1" class="question-hyperlink">Android webview cannot download files</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/40944551?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">11</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/40944551/canvas-js-export-enable-not-working-on-android-device?noredirect=1&amp;lq=1" class="question-hyperlink">Canvas js export enable not working on android device</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/34086011?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/34086011/unable-to-download-the-file-from-website-loaded-in-android-webview?noredirect=1&amp;lq=1" class="question-hyperlink">unable to download the file from website loaded in android Webview</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/40586193?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/40586193/get-video-url-from-facebook-in-webview?noredirect=1&amp;lq=1" class="question-hyperlink">Get video url from Facebook in WebView</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/38086112?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/38086112/android-webview-download-file-on-javascript-trigger?noredirect=1&amp;lq=1" class="question-hyperlink">Android WebView Download file on JavaScript trigger</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/26628551?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26628551/allow-phone-users-to-save-files-from-my-website-to-their-phone-storage-without-u?noredirect=1&amp;lq=1" class="question-hyperlink">Allow phone-users to save files from my website to their phone storage without using an app</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/16555571?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="http://stackoverflow.com/questions/16555571/how-to-open-pdf-docx-in-webview?rq=1" class="question-hyperlink">How to Open PDF/Docx in WebView</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/28568238?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/28568238/download-files-pdf-ppt-xls-in-android-webview-to-download-folder-without-b?rq=1" class="question-hyperlink">Download files (pdf , ppt , xls) in android webview to download folder without browser</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/31825957?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/31825957/how-to-download-a-pdf-from-a-dynamic-url-in-a-webview?rq=1" class="question-hyperlink">How to download a PDF from a dynamic URL in a webview</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/36245007?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/36245007/download-manager-is-not-showing-file-in-gallery-after-downloading-from-webview?rq=1" class="question-hyperlink">Download Manager is not showing file in Gallery after downloading from webview</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/36740039?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/36740039/how-to-download-web-view-contents-like-pdf-or-images?rq=1" class="question-hyperlink">How to download web view contents like PDF or images?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/39670080?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/39670080/download-pdf-using-download-manger-and-open-in-webview?rq=1" class="question-hyperlink">download pdf using download manger and open in webView</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/40042326?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/40042326/cannot-display-downloaded-html-file-in-webview-in-android-oncreate?rq=1" class="question-hyperlink">Cannot display downloaded html file in WebView in Android onCreate</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/42359389?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/42359389/cannot-view-the-downloaded-file-from-webview-android?rq=1" class="question-hyperlink">Cannot view the downloaded file from webview android</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/43009281?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="http://stackoverflow.com/questions/43009281/i-want-to-download-files-in-webview-but-cant-happening?rq=1" class="question-hyperlink">I want to download files in webview but cant happening</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/43140708?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">1</div></a><a href="http://stackoverflow.com/questions/43140708/file-download-from-webview-is-not-working-in-android-i-am-trying-this-way?rq=1" class="question-hyperlink">File Download from Webview is not working in android, I am trying this way,</a></div>
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/50913/another-big-picture-question" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Another big picture question
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/77831/are-bullets-slower-than-sound-feasible-in-a-high-tech-scenario" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are bullets slower than sound feasible in a high tech scenario?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-graphicdesign" title="Graphic Design Stack Exchange"></div><a href="http://graphicdesign.stackexchange.com/questions/89490/photoshop-how-to-replicate-this-text-effect" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:174 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Photoshop: how to replicate this text effect?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="https://security.stackexchange.com/questions/157243/should-i-reject-a-csr-when-the-host-emailed-me-the-private-key-for-ssl-certifica" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I reject a CSR when the host emailed me the private key for SSL certificate request?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/267018/asymptotic-formula-for-sums-of-four-squares" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Asymptotic formula for sums of four squares?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/169590/is-this-a-bug-in-apex-compiler" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is this a bug in Apex Compiler?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/97975/why-is-the-word-r%c3%b6tschreck-spelled-with-an-umlaut" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is the word "Rötschreck" spelled with an Umlaut?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/77849/stumped-what-would-replace-names-in-an-alternate-history" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Stumped: What would replace 'names' in an alternate history?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/78521/should-i-be-worried-that-i-wont-be-given-a-receipt-if-i-pay-with-cash" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I be worried that I won't be given a receipt if I pay with cash?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/43338084/is-it-possible-to-initialize-a-c-pointer-to-null" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it possible to initialize a C pointer to NULL?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/383790/english-equivalent-of-the-persian-proverb-when-theres-fire-wet-and-dry-burn-t" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    English equivalent of the Persian proverb "When there's fire, wet and dry burn together"
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/97916/who-gets-to-write-how-character-backgrounds-tie-into-the-game" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Who gets to write how character backgrounds tie into the game?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/97965/how-to-play-undead-gebbites" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to play undead Gebbites
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gardening" title="Gardening &amp; Landscaping Stack Exchange"></div><a href="http://gardening.stackexchange.com/questions/32568/how-can-i-tell-the-difference-between-male-and-female-trees" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:269 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I tell the difference between male and female trees?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="http://history.stackexchange.com/questions/37420/why-did-churchill-order-the-destruction-of-the-bombes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did Churchill order the destruction of the bombes?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/358561/rename-file-with-weird-name" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Rename file with weird name
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/88930/i-suspect-a-coworker-is-pregnant-and-will-be-taking-maternity-leave-but-she-has" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    I suspect a coworker is pregnant and will be taking maternity leave, but she hasn't confirmed and I can't really ask
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/37019/can-a-fighter-jet-be-stolen" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a fighter jet be stolen?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/88957/dealing-with-a-racist-work-environment" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Dealing with a racist work environment
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/87937/a-reference-that-is-old-has-no-bibtex-entry-and-probably-not-well-known-throug" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A reference that is old, has no bibtex entry, and probably not well-known throughout the readership. How to cite this?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="http://stats.stackexchange.com/questions/273382/how-can-the-probability-of-each-point-is-zero-in-continuous-random-variable" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can the probability of each point is zero in continuous random variable?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/89095/how-do-i-tell-my-pm-the-priorities-must-change-now" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I tell my PM the priorities must change now?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/267005/universal-infinite-graph-with-respect-to-minors" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "Universal" infinite graph (with respect to minors)
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/116261/rock-polyglot-scissors" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Rock, Polyglot, Scissors
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/21864098" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/21864098/ivc/6bce');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/21864098/ivc/6bce" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+        </div>
+    </div><script async="" src="./How to download files from webview Android_ - Stack Overflow_files/clc.min.js.download"></script>
+    <div id="footer" class="categories" role="contentinfo">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="https://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="https://data.stackexchange.com/">data</a>
+                    <a href="https://stackexchange.com/legal">legal</a>
+                    <a href="https://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="https://www.stackoverflowbusiness.com/advertise">advertising info</a>
+                        <a href="http://stackoverflow.com/jobs/directory/developer-jobs">developer jobs directory</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="https://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                        <li><a href="http://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Wolfram Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="http://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="http://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="http://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="http://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="http://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="http://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="http://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="http://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="http://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                        <li><a href="http://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="https://www.stackoverflowbusiness.com/talent">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2017.4.12.25667
+            </div>
+                </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+                ados_setKeywords('android,webview,android-download-manager');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', sampleRate: 5 });
+                ga('set', 'dimension2', '|android|webview|android-download-manager|');
+                ga('pageData.set', 'dimension2', '|android|webview|android-download-manager|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+<img src="https://clc.stackoverflow.com/timeout.gif" hidden="" style="display: none !important;"></body></html>

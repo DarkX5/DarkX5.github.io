@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Auto SMS v3</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+	
+	<style>
+		body {
+		  background-color: rgba(0, 0, 0, 0);
+		  width: 95%;
+		}
+
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  margin: 0;
+		  /* <-- Apparently some margin are still there even though it's hidden */
+		}
+
+		.toggle {
+		  border: 0px;
+		  border-radius: 15px;
+		  width: 75px;
+		  cursor: pointer;
+		  color: white;
+		  font-size: 1em;
+		}
+
+		.toggleChecked { background: #2f9ec2; }
+		.toggleUnchecked { background: dimgray; }
+
+		.btnStyle {
+		  -webkit-box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		  width: 97.5%;
+		  height: auto;
+		  text-align: center;
+		  vertical-align: middle;
+		  cursor: pointer;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  left: 0;
+		  padding: 0 0px;
+		  overflow: hidden;
+		  border: none;
+		  -webkit-border-radius: 25px;
+		  border-radius: 25px;
+		  font: normal 20px/normal "Antic", Helvetica, sans-serif;
+		  color: rgba(0, 0, 0, 1);
+		  text-decoration: normal;
+		  -o-text-overflow: ellipsis;
+		  text-overflow: ellipsis;
+		}
+
+		.mtop5 { margin-top: 5px; }
+
+		.text-left { text-align: left !important; }
+		.text-center { text-align: center !important; }
+
+		.bold { font-weight: bold; }
+
+		.bg-main-color { background-color: rgba(0, 0, 0, 0.25); }
+		.text-main-color { color: rgba(47, 158, 194, 1); }
+
+		.flex-container {
+		  display: flex;
+		  flex-flow: row nowrap;
+		  justify-content: space-around;
+		  align-items: center;
+		  align-content: center;
+		}
+
+		.wrap { flex-flow: row wrap !important; }
+		.flex-item { height: 30px; line-height: 30px; }
+		.flex-item-box { line-height: 250px; }
+		.fw10 { flex-basis: 10%; }
+		.fw25 { flex-basis: 25%; }
+		.fw30 { flex-basis: 30%; }
+		.fw40 { flex-basis: 40%; }
+		.fw50 { flex-basis: 50%; }
+		.fw70 { flex-basis: 70%; }
+		.fw75 { flex-basis: 75%; }
+		.fw100 { flex-basis: 100%; }
+
+		.largeNoInput {
+		  -webkit-box-sizing: border-box;
+		  -moz-box-sizing: border-box;
+		  box-sizing: border-box;
+		  text-align: center;
+		  overflow: hidden;
+		  border: none;
+		  -webkit-border-radius: 25px;
+		  border-radius: 25px;
+		  font: bold 25px/normal "Antic", Helvetica, sans-serif;
+		  color: rgba(47, 158, 194, 1);
+		  text-decoration: normal;
+		  -o-text-overflow: ellipsis;
+		  text-overflow: ellipsis;
+		  -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
+		  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
+		}
+	</style>
+	<script>
+		(function() {
+				var urlList = [];
+				/* load styles */
+				urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+				/* load scripts */
+				urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+				if(r.OS != "Android")
+						urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+				r.f.loadResources(urlList);
+		})();
+		window.onload = function() { init(); }
+	</script>
+
+</head>
+
+<body onresize="resizeElements()">
+  <!--input id="testInput"-->
+	<div id="row1" class="flex-container bg-main-color mtop5">
+		<span class="flex-item fw25 text-main-color bold">Calendar</span>
+		<div class="largeNoInput fw75">vip3r.ro@gmail.com</div>
+	</div>
+	<div id="row2" class="flex-container bg-main-color mtop5">
+		<span class="flex-item fw10 text-main-color text-center bold">Date</span>
+		<input id="inpDate" type="date" class="flex-item fw40 largeNoInput text-center" min="1/1/2017" max="1/1/2019">
+		<span class="flex-item fw10 text-main-color text-center bold">Time</span>
+		<input id="inpTime" type="time" class="flex-item fw40 largeNoInput">
+	</div>
+	<div id="row3" class="flex-container bg-main-color mtop5">
+		<span class="flex-item fw25 text-main-color bold">Phone No</span>
+		<input id="inpPhoneNo" type="tel" class="flex-item fw75 largeNoInput" onfocusout="setPhoneNo(this)">
+	</div>
+	<div id="row4" class="flex-container wrap bg-main-color mtop5">
+		<span class="flex-item fw100 text-main-color text-left bold">Message</span>
+		<textarea id="inpMessage" class="flex-item-box fw100 largeNoInput text-left" rows="3"></textarea>
+	</div>
+
+	<div id="row5" class="flex-container bg-main-color mtop5">
+		<button id="exitBtn" class="flex-item fw40 toggle toggleUnchecked bold" onclick="exit()">Exit</button>
+		<button id="setSMS" class="flex-item fw40 toggle toggleChecked">Set SMS</button>
+	</div>
+
+</body>
+
+<script>
+  // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+  //var temp = local("temporary");
+  //document.getElementById("inp1").value = temp;
+	
+  //verificare NullOrEmpty
+  function isNullOrEmpty(value) {
+    var emptyArr = ["undefined", "null", "NaN", ""],
+      emptyObj = ["{}", "[]"];
+    if (emptyObj.indexOf(JSON.stringify(value)) > -1)
+      return true;
+    try {
+      value = value.replace(/ /g, "");
+    } catch (ex) {}
+    if (emptyArr.indexOf(String(value)) > -1)
+      return true;
+
+    return false;
+  };
+
+  function init() {
+		// m.f.loadStyle("masterLib.min.css", m.f.loadResourceLog);
+				
+		// // m.f.loadScript("masterLib.min.js", m.f.loadResourceLog);
+		// if(o.OS == "Android")
+		// 	m.f.loadScript("tasker.js", m.f.loadResourceLog);
+
+    //set min/max date
+    var now = new Date();
+    var day = now.getDate();
+    day = (day < 10) ? "0"+ day : day;
+    var month = now.getMonth() + 1;
+    month = (month < 10) ? "0"+ month : month;
+    var year = now.getFullYear();
+    document.getElementById("inpDate").min = year +"-"+ month +"-"+ day;
+    document.getElementById("inpDate").max = (year + 1) +"-"+ month +"-"+ day;
+
+    resizeElements();
+  }
+
+  function resizeElements() {
+    var windowHeight;
+    /*
+            if (window.innerHeight) {
+                windowHeight = window.innerHeight;
+                document.getElementById("tableContainer").style.height = String(windowHeight - 25) + "px";
+            } else {
+                windowHeight = document.body.clientHeight;
+                document.getElementById("tableContainer").style.height = String(document.body.clientHeight - 25) + "px";
+            }
+    * /
+    var fontSize;
+    if (windowHeight >= 600)
+      fontSize = "350";
+    else if (windowHeight >= 500 && windowHeight < 600)
+      fontSize = "250";
+    else if (windowHeight >= 400 && windowHeight < 500)
+      fontSize = "200";
+    else if (windowHeight >= 300 && windowHeight < 400)
+      fontSize = "150";
+    else if (windowHeight >= 200 && windowHeight < 300)
+      fontSize = "100";
+    else if (windowHeight >= 100 && windowHeight < 200)
+      fontSize = "50";
+    else
+      fontSize = "25";
+*/
+  }
+
+  /* EVENTS */
+
+  function setPhoneNo(sender) {
+    var temp = sender.value; //document.getElementById("inpPhoneNo").value;
+    var txt = "";
+    var i;
+    for (i = 0; i < temp.length; i++)
+      if (temp[i] != ".")
+        txt += temp[i];
+    var returnVar = "";
+    for (i = 0, j = 0; i < txt.length; i += 1) {
+      if (txt[0] !== "+") {
+        if (i > 3 && ((i - 4) % 3) === 0 && txt[0] !== "+") {
+          returnVar += ".";
+        }
+      } else {
+        if (i > 2 && ((i % 3) === 0)) {
+          returnVar += ".";
+        }
+      }
+      returnVar += txt[i];
+    }
+    sender.value = returnVar;
+  }
+
+  function setSMS() {
+    var birthday = false;
+    var date = document.getElementById("inpDate").value.split("-"); // y-m-d
+    var time = document.getElementById("inpTime").value.split(":"); // h:m
+
+    if(time[0] === "")
+      birthday = true;
+    
+    
+  }
+
+  function exit() {
+		performTask("destroyQuickApp", 100, "Auto SMS v3")
+    //destroyScene("Auto SMS v3");
+  }
+
+</script>
+
+</html>

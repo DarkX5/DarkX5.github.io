@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>THE BLUE OLIVE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+    <link rel="stylesheet" href="master.CSS">
+    <link rel="stylesheet" href="masterLib.CSS">
+	
+    <script src="jquery-3.1.1.min.js"></script>
+    <script src="contentData.js"></script>
+    <script src="masterLib.js"></script>
+	
+</head>
+
+<body onresize="windowResize()" onload="windowResize()">
+    <div class="page content page-js">
+        <div id="MainMenu" class="flex w100 t-center">
+            <div class="flex nowrap align-sb w100 t-center">
+                <div class="firm-name">The Blue Olive</div>
+                <div class="flex nowrap align-r btn-container">
+                    <div class="btn menu main-menu-js btn-selected" data-link="ProjectsContainer">Projects</div>
+                    <div class="btn menu main-menu-js" data-link="AboutContainer">About me</div>
+                    <div class="btn menu main-menu-js" data-link="ContactContainer">Contact</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="SpacerMainMenu" class="spacer-main-menu"></div>
+
+        <div id="ProjectsContainer" class="flex nowrap w100 t-center menu projects">
+            <div class="btn submenu w100 submenu-js btn-selected" data-link="PaintingsContainer">Paintings</div>
+            <div class="btn submenu w100 submenu-js" data-link="AnimationsContainer">Animations</div>
+            <!-- <div class="btn submenu w100 submenu-js" data-link="FXContainer">FX</div> -->
+        </div>
+
+        <div id="SpacerProjectsMenu" class="spacer-content"></div>
+<!--
+        <div id="PaintingsContainer" class="flex container scroll nano container-js paint-js paintings">
+            <div class="pcontainer icontainer-js" data-link="heavyheart">
+                <div class="ptitle">Heavy Heart</div>
+                <img class="pimage" src="./media/image/heavyHeart.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="turtle">
+                <div class="ptitle">Wisdom of the Turtle</div>
+                <img class="pimage" src="./media/image/turtle.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="batutDeVant">
+                <div class="ptitle">Batut de vant</div>
+                <img class="pimage" src="./media/image/batutDeVant.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="thehunt">
+                <div class="ptitle">The Hunt</div>
+                <img class="pimage" src="./media/image/theHunt.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="turtle">
+                <div class="ptitle">Wisdom of the Turtle</div>
+                <img class="pimage" src="./media/image/turtle.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="heavyheart">
+                <div class="ptitle">Heavy Heart</div>
+                <img class="pimage" src="./media/image/heavyHeart.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="batutDeVant">
+                <div class="ptitle">Batut de vant</div>
+                <img class="pimage" src="./media/image/batutDeVant.jpg">
+            </div>
+            <div class="pspacer"></div>
+            <div class="pcontainer icontainer-js" data-link="turtle">
+                <div class="ptitle">Wisdom of the Turtle</div>
+                <img class="pimage" src="./media/image/turtle.jpg">
+            </div>
+        </div>
+-->
+        <div id="PaintingsContainer" class="flex nowrap align-l align-t container container-js paint-js paintings">
+            <div class="flex pcontainer icontainer-js" data-link="heavyheart">
+                <img class="pimage" src="./media/image/heavyHeart.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="turtle">
+                <img class="pimage" src="./media/image/turtle.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="batutDeVant">
+                <img class="pimage" src="./media/image/batutDeVant.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="thehunt">
+                <img class="pimage" src="./media/image/theHunt.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="turtle">
+                <img class="pimage" src="./media/image/turtle.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="heavyheart">
+                <img class="pimage" src="./media/image/heavyHeart.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="batutDeVant">
+                <img class="pimage" src="./media/image/batutDeVant.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+            <div class="pspacer"></div>
+            <div class="flex pcontainer icontainer-js" data-link="turtle">
+                <img class="pimage" src="./media/image/turtle.jpg">
+				<div class="flex info tcontent img position">
+					<div class="flex trow name">
+						<div class="text">Name</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow status">
+						<div class="text">Status</div>
+						<div class="content"></div>
+					</div>
+					<div class="flex trow price">
+						<div class="text">Price</div>
+						<div class="content"></div>
+                    </div>
+					<div class="flex trow description">
+						<div class="text">Description</div>
+						<div class="content"></div>
+					</div>
+				</div>
+            </div>
+        </div>
+
+        <div id="AnimationsContainer" class="flex container container-js animation-js animations hide">
+            <div class="pcontainer vcontainer-js" data-link="thechase">
+                <div class="ptitle">The Chase (part 1)</div>
+                <img class="pimage" src="./media/video/theChasePart1Cover.jpg">
+            </div>
+        </div>
+<!--
+        <div id="FXContainer" class="flex container container-js fx-js fx hide">
+            FX LIST!
+        </div>
+-->
+        <div id="AboutContainer" class="flex container container-js about hide">
+            <div>
+                <p>Irina Mitrica</p>
+                <p>Description: -</p>
+                <p>Somethin' else: -</p>
+            </div>
+        </div>
+            
+        <div id="ContactContainer" class="flex container container-js contact hide">
+            <div>
+                <p>E-Mail: <a href="mailto:theblueolive@outlook.com">Send Mail</a></p>
+                <p>Facebook: <a href="https://www.facebook.com/mitrica.irina/" target="_blank">Visit page</a></p>
+                <p>Youtube Channel: <a href="https://www.youtube.com/watch?v=f2q43X6Shug&list=UUn5Y_BtY_7d6ppZ6F0HIqnQ&index=4" target="_blank">Go to channel</a></p>
+                <p>Image Collection: <a href="https://1drv.ms/a/s!AnYJbE2P--86eR4fFQ59-LYghpU" target="_blank">Goto image album</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!--<div class="overlay-mask mask-js hide">&nbsp;</div>-->
+    <div id="OverlayContainer" class="container overlay hide">
+        <div id="OverlayContent" class="flex nowrap content icontent">
+            <div id="oImage" class="container w100 img hide">
+                <div class="title"></div>
+                <img class="image" src="">        
+            </div>
+            <div id="oVideo" class="container video hide">
+                <div class="title"></div>
+                <iframe class="video" src="" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>        
+            </div>
+        </div>
+        <div id="OverlayText" class="flex info tcontent position">
+            <div class="flex align-l w100 trow name">
+                <div class="text">Name</div>
+                <div id="oName" class="content"></div>
+            </div>
+            <div class="flex align-l w100 trow type">
+                <div class="text">Type</div>
+                <div id="oType" class="content"></div>
+            </div>
+            <div class="flex align-l w100 trow status">
+                <div class="text">Status</div>
+                <div id="oStatus" class="content"></div>
+            </div>
+            <div class="flex align-l w100 trow price">
+                <div class="text">Price</div>
+                <div id="oPrice" class="content"></div>
+            </div>
+            <div class="flex align-l w100 trow dimension">
+                <div class="text">Dimensions</div>
+                <div class="flex nowrap">
+                    <div class="pspacer"></div>
+                    <div class="text">Height:</div>
+                    <div id="oHeight" class="content height"></div>
+                </div>
+                <div class="flex nowrap">
+                    <div class="pspacer"></div>
+                    <div class="text">Width:</div>
+                    <div id="oWidth" class="content width"></div>
+                </div>
+            </div>
+            <div class="flex align-l w100 trow description">
+                <div class="text">Description</div>
+                <div id="oDescription" class="content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="master.js"></script>
+
+    <script type="text/javascript">
+        setInfo();
+    </script>
+</body>
+
+</html>

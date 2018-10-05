@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TEMPLATE TITLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="jquery-3.1.1.js"></script>
+	
+    <style>
+        body {
+            width: 95%;
+        }
+		
+    </style>
+
+</head>
+
+<body>
+	<textarea id="ResultBox" rows="50" style="width:100%;"></textarea>
+	
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+		$(document).ready(function() { 
+			listAllFunctions();
+		});
+		
+		function listAllFunctions(){
+		var functionList = Object.getOwnPropertyNames(window);
+		  for ( var i = 0; i < functionList.length; i += 1) {
+			//if((typeof functionList[i]).toString()=="function"){
+				$("#ResultBox").text($("#ResultBox").text() + functionList[i] +"\n");
+				//document.write( window[i].name+"<br />"); 
+				//document.write( );
+			//}
+		}}
+
+	</script>
+</body>
+
+</html>

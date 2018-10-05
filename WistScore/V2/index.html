@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <title>WIST v2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="master.css">
+
+</head>
+
+<body onload="init()" onresize="resizeElements()">
+
+  <div id="Overlay" class="overlay-container">
+    <div class="overlay">
+
+      <div id="setupDiv" class="">
+        <div id="messageRow" class="row flex-left">
+          <div id="divSetupMsg" class="setupMsgStyle">Please set the number of players:
+          </div>
+        </div>
+        <div class="separator-h10"></div>
+        <div id="playerSetupRow" class="row flex-left">
+          <input id="tbSetupPlayerNo" class="row smallNoInput playerNo" type="number">
+          <input id="tbSetupPlayerName" class="row largeInpugt playerName" style="display:none;" type="text">
+        </div>
+        <div class="separator-h10"></div>
+        <div id="gameSetupRow" class="row" style="display: none;">
+          <div id="gameLengthDiv" class="row wrap w50p">
+            <div style="font-weight:bold">Game Length:</div>
+            <div id="BtnShortGame" class="toggBtn toggGame inactiveTogg">Short ( 1*8 )</div>
+            <div id="BtnNormalGame" class="toggBtn toggGame activeTogg">Normal ( 2*8 )</div>
+            <div id="BtnLongGame" class="toggBtn toggGame inactiveTogg">Long ( 4*8 )</div>
+            <div id="BtnCustomGame" class="toggBtn toggGame inactiveTogg">Custom ( x*8 )</div>
+          </div>
+          <div id="bonusSetDiv" class="row wrap w50p">
+            <div style="font-weight:bold">Bonus:</div>
+            <div id="BtnLowBonus" class="toggBtn toggBonus inactiveTogg">Low ( 5 )
+            </div>
+            <div id="BtnNormalBonus" class="toggBtn toggBonus activeTogg">Normal ( 10 )</div>
+            <div id="BtnBigBonus" class="toggBtn toggBonus inactiveTogg">Big ( 15 )</div>
+            <div id="BtnCustomBonus" class="toggBtn toggBonus inactiveTogg">Custom</div>
+          </div>
+        </div>
+        <div id="buttonRow" class="row flex-left">
+          <div class="row">
+            <button id="BtnSetupBack" class="btn btn-danger playerName" style="display:none;">Back</button>
+            <button id="BtnSetupNext" class="btn btn-info playerName" style="display:none;">Next</button>
+            <button id="BtnSetupPlayerNo" class="btn btn-info playerNo">Next</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="MainBox" class="js-game-setup">
+      <div id="saveLoadDiv" class="row nowrap flex-right w100">
+          <button id="BtnSaveGame" class="btn bold btn-danger">Save</button>
+          <button id="BtnLoadGame" class="btn btn-info bold">Load</button>
+      </div>
+  
+      <div id="currentGameDiv" style="display:none">
+      <div id="currentName" style="font-weight:bold;">Player 1</div>
+      <div id="currentAuctionBox" style="display: inline-block;">
+        <div style="display: inline-block;">Auction:</div>
+        <input id="currentAuction" class="smallNoInput" type="number"> </div>
+      <div id="currentDoneBox" style="display: inline-block;">
+        <div style="display: inline-block;">Done:</div>
+        <input id="currentDone" class="smallNoInput" type="number"> </div>
+      <div class="splitter"></div>
+      <button id="BtnBack" class="btn btn-danger">Back</button>
+      <button id="BtnNext" class="btn btn-info">Next</button>
+    </div>
+    <div id="msgBox" style="display: none;" class="alert alert-danger">test</div>
+    <div id="GameCurrent" class="game current js-game-current">
+      <div class="row header">
+        <div class="round js-player-details">#</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item name js-player-details" data-idx="0">Player 1</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item name js-player-details" data-idx="1">Player 2</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item name js-player-details" data-idx="2">Player 3</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item name js-player-details" data-idx="3">Player 4</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item name js-player-details" data-idx="4">Player 5</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item name js-player-details" data-idx="5">Player 6 jjf</div>
+      </div>
+      <div class="row header">
+        <div class="round js-player-details">T</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item game-total js-player-details" data-idx="0">0</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item game-total js-player-details" data-idx="1">0</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item game-total js-player-details" data-idx="2">0</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item game-total js-player-details" data-idx="3">0</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item game-total js-player-details" data-idx="4">0</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="h-item game-total js-player-details" data-idx="5">0</div>
+      </div>
+      <div class="row header">
+        <div class="round js-player-details">S</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="0">A</div>
+        <div class="item done js-player-details" data-idx="0">D</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="1">A</div>
+        <div class="item done js-player-details" data-idx="1">D</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="2">A</div>
+        <div class="item done js-player-details" data-idx="2">D</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="3">A</div>
+        <div class="item done js-player-details" data-idx="3">D</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="4">A</div>
+        <div class="item done js-player-details" data-idx="4">D</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="5">A</div>
+        <div class="item done js-player-details" data-idx="5">D</div>
+      </div>
+      <div class="row js-row">
+        <div class="round js-player-details">5</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="0">5</div>
+        <div class="item done js-player-details" data-idx="0">05</div>
+        <div class="item total js-player-details hide" data-idx="0">-5</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="1">3</div>
+        <div class="item done js-player-details" data-idx="1">35</div>
+        <div class="item total js-player-details hide" data-idx="1">8</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="2">3</div>
+        <div class="item done js-player-details" data-idx="2">4</div>
+        <div class="item total js-player-details hide" data-idx="2">-1</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="3">5</div>
+        <div class="item done js-player-details" data-idx="3">5</div>
+        <div class="item total js-player-details hide" data-idx="3">160</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="4">7</div>
+        <div class="item done js-player-details" data-idx="4">7</div>
+        <div class="item total js-player-details hide" data-idx="4">12</div>
+        <div class="separator-w3">&nbsp;</div>
+        <div class="item auction js-player-details" data-idx="5">2</div>
+        <div class="item done js-player-details" data-idx="5">7</div>
+        <div class="item total js-player-details hide" data-idx="5">-4</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="separator-h10"></div>
+
+  <iframe id="GameTableContainer" style="overflow: hidden;" class="w100p" srcdoc='<div style="width: 150px; height: 150px; background-color: black; color: white;">gfdhdfhfd hfd hfd hdfhdfhdfhdfhdfh</div>'></iframe>
+
+  <div id="GameHeader" class="game full header js-hide js-game-full-header">
+    <div class="row header">
+      <div class="round">
+        <img class="img refresh" src="">
+      </div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="0">A</div>
+      <div class="item done" data-idx="0">D</div>
+      <div class="item total" data-idx="0">T</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="1">A</div>
+      <div class="item done" data-idx="1">D</div>
+      <div class="item total" data-idx="1">T</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="2">A</div>
+      <div class="item done" data-idx="2">D</div>
+      <div class="item total" data-idx="2">T</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="3">A</div>
+      <div class="item done" data-idx="3">D</div>
+      <div class="item total" data-idx="3">T</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="4">A</div>
+      <div class="item done" data-idx="4">D</div>
+      <div class="item total" data-idx="4">T</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="5">A</div>
+      <div class="item done" data-idx="5">D</div>
+      <div class="item total" data-idx="5">T</div>
+    </div>
+  </div>
+  <div class="separator-h5"></div>
+  <div id="GameBox" class="game full js-hide js-game-full hide">
+    <div class="row">
+      <div class="round">5</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="0">5</div>
+      <div class="item done" data-idx="0">05</div>
+      <div class="item total" data-idx="0">-5</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="1">3</div>
+      <div class="item done" data-idx="1">35</div>
+      <div class="item total" data-idx="1">8</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="2">3</div>
+      <div class="item done" data-idx="2">4</div>
+      <div class="item total" data-idx="2">-1</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="3">5</div>
+      <div class="item done" data-idx="3">5</div>
+      <div class="item total" data-idx="3">160</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="4">7</div>
+      <div class="item done" data-idx="4">7</div>
+      <div class="item total" data-idx="4">12</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="5">2</div>
+      <div class="item done" data-idx="5">7</div>
+      <div class="item total" data-idx="5">-4</div>
+    </div>
+    <div class="separator-h2"></div>
+    <div class="row">
+      <div class="round">5</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="0">5</div>
+      <div class="item done" data-idx="0">05</div>
+      <div class="item total" data-idx="0">-5</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="1">3</div>
+      <div class="item done" data-idx="1">35</div>
+      <div class="item total" data-idx="1">8</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="2">3</div>
+      <div class="item done" data-idx="2">4</div>
+      <div class="item total" data-idx="2">-1</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="3">5</div>
+      <div class="item done" data-idx="3">5</div>
+      <div class="item total" data-idx="3">160</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="4">7</div>
+      <div class="item done" data-idx="4">7</div>
+      <div class="item total" data-idx="4">12</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="5">2</div>
+      <div class="item done" data-idx="5">7</div>
+      <div class="item total" data-idx="5">-4</div>
+    </div>
+    <div class="separator-h2"></div>
+    <div class="row">
+      <div class="round">5</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="0">5</div>
+      <div class="item done" data-idx="0">05</div>
+      <div class="item total" data-idx="0">-5</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="1">3</div>
+      <div class="item done" data-idx="1">35</div>
+      <div class="item total" data-idx="1">8</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="2">3</div>
+      <div class="item done" data-idx="2">4</div>
+      <div class="item total" data-idx="2">-1</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="3">5</div>
+      <div class="item done" data-idx="3">5</div>
+      <div class="item total" data-idx="3">160</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="4">7</div>
+      <div class="item done" data-idx="4">7</div>
+      <div class="item total" data-idx="4">12</div>
+      <div class="separator-w3">&nbsp;</div>
+      <div class="item auction" data-idx="5">2</div>
+      <div class="item done" data-idx="5">7</div>
+      <div class="item total" data-idx="5">-4</div>
+    </div>
+  </div>
+  <form enctype="multipart/form-data" style="display: none;">
+    <input id="uploadSave" accept=".sav" name="files[]" size="30" type="file">
+  </form>
+
+  <script src="jquery-3.1.1.min.js"></script>
+  <script src="jquery.touchSwipe.min.js"></script>
+  <script src="utils.js"></script>
+
+  <script src="settings.js"></script>
+  <script src="master.js"></script>
+
+  <script type="text/javascript">
+
+    function init() {
+      $("#GameTableContainer").hide();
+      $("#GameHeader").hide();
+      $("#GameBox").hide();
+      $("#currentGameDiv").hide();
+      $("#tbSetupPlayerNo").val("").focus();
+
+      /* TODO - uncomment next line */
+      //$("#gameTableDiv").hide();
+      /* TODO - end */
+
+      setImageSources();
+
+      resizeElements();
+    }
+
+    init();
+
+  </script>
+
+</body>
+
+</html>

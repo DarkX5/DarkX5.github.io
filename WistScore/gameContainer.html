@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Game Container</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="CSS/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/lib/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="CSS/main.CSS">
+    <script src="JS/lib/bootstrap.min.js"></script>
+
+    <script src="JS/lib/jquery-3.1.1.min.js"></script>
+    <script src="JS/lib/jquery.touchSwipe.min.js"></script>
+    <script src="JS/lib/bootstrap.min.js"></script>
+
+    <script src="JS/settings.js"></script>
+    <script src="JS/mainScript.js"></script>
+
+    <style>
+        .toggBtn {
+            background-color: #2f9ec2;
+            border-radius: 21px;
+            width: auto;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .setupMsgStyle {
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .activeTogg {
+            background-color: #000000;
+            color: #2f9ec2;
+        }
+
+        .inactiveTogg {
+            background-color: #2f9ec2;
+            color: #000000;
+        }
+
+        .table-responsive {
+            margin-bottom: 0px !important;
+            width: 100% !important;
+        }
+
+        .center {
+            margin: auto;
+        }
+
+        .current-round-bg {
+            background-color: lightgray;
+        }
+
+        .rowStyle {}
+
+        .colStyle {}
+
+        .flex-container {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: baseline;
+          align-content: flex-start;
+        }
+
+        .flex-item {
+          border: 1px solid #ccc;
+          text-align: center;
+          flex-basis: 5.5%;
+          min-width: 5.5%;
+        }
+
+        .flex-col-1 {
+          flex-grow: 1 !important;
+        }
+
+        .flex-col-2 {
+          flex-grow: 2 !important;
+        }
+
+        .flex-col-3 {
+          flex-grow: 3 !important;
+        }
+    </style>
+
+</head>
+
+<body style="width: 96.5%; margin: auto; padding: auto;" onload="loadPageStartupValues()">
+
+    <!--	<div id="gameTableDiv" class="table-responsive center" style="display:none;">
+        <h2>Score Table</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr id="scoreHeaderRow1">
+                    <th id="detailsBtn" class="thRound">#</th>
+                </tr>
+                <tr id="scoreHeaderRow2">
+                    <th class="thRound"><img src="./IMG/refresh.png" class="img-responsive"></th>
+                </tr>
+            </thead>
+            <tbody id="scoreBody">
+            </tbody>
+        </table>
+    </div>
+-->
+  <div class="flex-container">
+    <div class="flex-item p1a">15</div>
+    <div class="flex-item p1d">25</div>
+    <div class="flex-item p2a">45</div>
+    <div class="flex-item p2d">55</div>
+    <div class="flex-item p3a">75</div>
+    <div class="flex-item p3d">85</div>
+    <div class="flex-item p4a">105</div>
+    <div class="flex-item p4d">115</div>
+    <div class="flex-item p5a">135</div>
+    <div class="flex-item p5d">145</div>
+    <div class="flex-item p6a">165</div>
+    <div class="flex-item p6d">175</div>
+  </div>
+  <div class="flex-container">
+    <div class="flex-item p1d">25</div>
+    <div class="flex-item p2a">45</div>
+    <div class="flex-item p2d">55</div>
+    <div class="flex-item p3a">75</div>
+    <div class="flex-item p3d">85</div>
+    <div class="flex-item p4a">105</div>
+    <div class="flex-item p4d">115</div>
+    <div class="flex-item p5a">135</div>
+    <div class="flex-item p1a">15</div>
+    <div class="flex-item p5d">145</div>
+    <div class="flex-item p6a">165</div>
+    <div class="flex-item p6d">175</div>
+  </div>
+
+    <form enctype="multipart/form-data" style="display: none;">
+        <input id="uploadSave" type=file accept=".sav" name="files[]" size=30>
+    </form>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>WIST</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="JS/lib/jquery-3.1.1.min.js"></script>
+    <script src="JS/lib/jquery.touchSwipe.min.js"></script>
+    <script src="JS/lib/bootstrap.min.js"></script>
+
+    <script src="JS/settings.js"></script>
+    <script src="JS/mainScript.js"></script>
+
+    <link rel="stylesheet" href="CSS/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/lib/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="CSS/main.CSS">
+
+
+    <style>
+        .toggBtn {
+            background-color: #2f9ec2;
+            border-radius: 21px;
+            width: auto;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .setupMsgStyle {
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .activeTogg {
+            background-color: #000000;
+            color: #2f9ec2;
+        }
+
+        .inactiveTogg {
+            background-color: #2f9ec2;
+            color: #000000;
+        }
+		
+		.table-responsive {
+			margin-bottom: 0px !important;
+			width: 100% !important;
+		}
+		
+		.center {
+			margin: auto;
+		}
+		
+		.current-round-bg {
+			background-color: lightgray;
+		}
+		
+        .rowStyle {}
+
+        .colStyle {}
+    </style>
+
+</head>
+
+<body style="width: 96.5%; margin: auto; padding: auto;" onload="loadPageStartupValues()">
+    <nav class="navbar navbar-default navbar-fixed-top">
+		<div id="saveLoadDiv" class="container-fluid" style="float:right;">
+			<button id="btnSaveGame" class="btn btn-danger bold">Save</button>
+			<button id="btnLoadGame" class="btn btn-info bold">Load</button>
+		</div>
+        <div id="setupDiv" class="container-fluid">
+            <div id="messageRow" class="row">
+                <div id="divSetupMsg" class="setupMsgStyle">Please set the number of players:</div>
+            </div>
+            <div id="playerSetupRow" class="row">
+                <input id="tbSetupPlayerNo" class="col-xs-12 smallNoInput playerNo" type="number">
+                <input id="tbSetupPlayerName" class="col-xs-12 largeInput playerName" type="text" style="display:none;">
+            </div>
+            <div id="gameSetupRow" class="row" style="display: none;">
+                <div id="gameLengthDiv" class="col-xs-6">
+                    <div style="font-weight:bold">Game Length:</div>
+                    <div id="shortGameBtn" class="toggBtn toggGame inactiveTogg">Short ( 1*8 )</div>
+                    <div id="normalGameBtn" class="toggBtn toggGame activeTogg">Normal ( 2*8 )</div>
+                    <div id="longGameBtn" class="toggBtn toggGame inactiveTogg">Long ( 4*8 )</div>
+                    <div id="customGameBtn" class="toggBtn toggGame inactiveTogg">Custom ( x*8 )</div>
+                </div>
+                <div id="bonusSetDiv" class="col-xs-6">
+                    <div style="font-weight:bold">Bonus:</div>
+                    <div id="lowBonusBtn" class="toggBtn toggBonus inactiveTogg">Low ( 5 )</div>
+                    <div id="normalBonusBtn" class="toggBtn toggBonus activeTogg">Normal ( 10 )</div>
+                    <div id="bigBonusBtn" class="toggBtn toggBonus inactiveTogg">Big ( 15 )</div>
+                    <div id="customBonusBtn" class="toggBtn toggBonus inactiveTogg">Custom</div>
+                </div>
+            </div>
+            <div id="separatorRow" class="row">
+                <div class="col-xs-12 splitter"></div>
+            </div>
+            <div id="buttonRow" class="row">
+                <div class="col-xs-12">
+                    <button id="btnSetupBack" class="btn btn-danger playerName" style="display:none;">Back</button>
+                    <button id="btnSetupNext" class="btn btn-info playerName" style="display:none;">Next</button>
+                    <button id="btnSetupPlayerNo" class="btn btn-info playerNo">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="currentGameDiv" style="display:none">
+            <div id="currentName" style="font-weight:bold;" id="lblCurrentPlayer">Player 1</div>
+            <div id="currentAuctionBox" style="display: inline-block;">
+                <div style="display: inline-block;">Auction:</div>
+                <input id="currentAuction" class="smallNoInput" type="number">
+            </div>
+            <div id="currentDoneBox" style="display: inline-block;">
+                <div style="display: inline-block;">Done:</div>
+                <input id="currentDone" class="smallNoInput" type="number">
+            </div>
+            <div class="splitter"></div>
+            <button id="btnBack" class="btn btn-danger">Back</button>
+            <button id="btnNext" class="btn btn-info">Next</button>
+        </div>
+        <div id="msgBox" style="display: none;" class="alert alert-danger">test</div>
+
+		<div id="currentRoundTableDiv" class="table-responsive current-round-bg">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr id="currentHeaderRow1">
+						<th id="currentDetailsBtn" class="thRound">#</th>
+						<th id="cthp1" class="headerRowStyle currentPlayerHead cpt1" colspan="2" style="display: none;">Player 1</th>
+						<th id="cthp2" class="headerRowStyle currentPlayerHead cpt2" colspan="2" style="display: none;">Player 2</th>
+						<th id="cthp3" class="headerRowStyle currentPlayerHead cpt3" colspan="2" style="display: none;">Player 3</th>
+						<th id="cthp4" class="headerRowStyle currentPlayerHead cpt4" colspan="2" style="display: none;">Player 4</th>
+						<th id="cthp5" class="headerRowStyle currentPlayerHead cpt5" colspan="2" style="display: none;">Player 5</th>
+						<th id="cthp6" class="headerRowStyle currentPlayerHead cpt6" colspan="2" style="display: none;">Player 6</th>
+					</tr>
+					<tr id="currentHeaderRow2">
+						<th class="thRound"></th>
+						<th class="headerRowStyle currentAuctionCol cpa1" style="display: none;">A</th>
+						<th class="headerRowStyle currentDoneCol cpd1" style="display: none;">D</th>
+						<th class="headerRowStyle currentAuctionCol cpa2" style="display: none;">A</th>
+						<th class="headerRowStyle currentDoneCol cpd2" style="display: none;">D</th>
+						<th class="headerRowStyle currentAuctionCol cpa3" style="display: none;">A</th>
+						<th class="headerRowStyle currentDoneCol cpd3" style="display: none;">D</th>
+						<th class="headerRowStyle currentAuctionCol cpa4" style="display: none;">A</th>
+						<th class="headerRowStyle currentDoneCol cpd4" style="display: none;">D</th>
+						<th class="headerRowStyle currentAuctionCol cpa5" style="display: none;">A</th>
+						<th class="headerRowStyle currentDoneCol cpd5" style="display: none;">D</th>
+						<th class="headerRowStyle currentAuctionCol cpa6" style="display: none;">A</th>
+						<th class="headerRowStyle currentDoneCol cpd6" style="display: none;">D</th>
+					</tr>
+				</thead>
+				<tbody id="currentScoreBody">
+					<tr id="currentRow" class="currentRow currentScoreTableRow" style="background-color: lightgray;">
+						<td class="currentRow tdRound">1</td>
+						<td class="currentRow currentAuctionCol cpa1" style="display: none;"></td>
+						<td class="currentRow currentDoneCol cpd1" style="display: none;"></td>
+						<td class="currentRow currentAuctionCol cpa2" style="display: none;"></td>
+						<td class="currentRow currentDoneCol cpd2" style="display: none;"></td>
+						<td class="currentRow currentAuctionCol cpa3" style="display: none;"></td>
+						<td class="currentRow currentDoneCol cpd3" style="display: none;"></td>
+						<td class="currentRow currentAuctionCol cpa4" style="display: none;"></td>
+						<td class="currentRow currentDoneCol cpd4" style="display: none;"></td>
+						<td class="currentRow currentAuctionCol cpa5" style="display: none;"></td>
+						<td class="currentRow currentDoneCol cpd5" style="display: none;"></td>
+						<td class="currentRow currentAuctionCol cpa6" style="display: none;"></td>
+						<td class="currentRow currentDoneCol cpd6" style="display: none;"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</nav>
+  <div id="navbarFiller" style="width: 100%;">navbar filler</div>
+
+  <button id="btnStartGame" class="btn btn-info center" style="font-weight:bold; color:black; display:none;">Start Game</button>
+  
+	<div id="gameTableDiv" class="table-responsive center" style="display:none;">
+        <h2>Score Table</h2>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr id="scoreHeaderRow1">
+                    <th id="detailsBtn" class="thRound">#</th>
+                </tr>
+                <tr id="scoreHeaderRow2">
+                    <th class="thRound"><img src="./IMG/refresh.png" class="img-responsive"></th>
+                </tr>
+            </thead>
+            <tbody id="scoreBody">
+            </tbody>
+        </table>
+    </div>
+
+	<form enctype="multipart/form-data" style="display: none;">
+		<input id="uploadSave" type=file accept=".sav" name="files[]" size=30>
+	</form>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        //getPlayerNo();
+		$("#navbarFiller").height($(".navbar.navbar-default.navbar-fixed-top").height() + 15);
+		//$("#gameTableDiv").width($(window).width() - 5);
+
+        $("#currentGameDiv").hide();
+        /* TODO - uncomment next line */
+        //$("#gameTableDiv").hide();
+        /* TODO - end */
+        $("#tbSetupPlayerNo").val("").focus();
+
+		document.getElementById('uploadSave').addEventListener('change', loadGame, false);
+		
+		$("#btnSaveGame").click(function(){
+			saveGame();
+		});
+		$("#btnLoadGame").click(function(){
+			$("#uploadSave").click();
+		});
+
+        $(".playerHead").click(function(e) {
+            hideDetails(e.currentTarget);
+        });
+
+        $("#detailsBtn").click(function() {
+            hideDetails();
+        });
+
+        $(".toggBtn").click(function(e) {
+            if (String(e.currentTarget.id).indexOf("Game") > -1) {
+                $(".toggGame").css("background-color", "#2f9ec2");
+                $(".toggGame").css("color", "#000000");
+                switch (String(e.currentTarget.id)) {
+                    case "shortGameBtn":
+                        gameData.gameLength = 1;
+                        break;
+                    case "normalGameBtn":
+                        gameData.gameLength = 2;
+                        break;
+                    case "longGameBtn":
+                        gameData.gameLength = 4;
+                        break;
+                    case "customGameBtn":
+                        var customGameLen = prompt("Custom Length: ");
+                        if (!isNullOrEmpty(customGameLen))
+                            try {
+                                gameData.gameLength = parseInt(customGameLen);
+                            } catch (ex) {
+                                gameData.gameLength = 2;
+                            }
+                        break;
+                    default:
+                        gameData.gameLength = 2;
+                        break;
+                }
+            } else {
+                $(".toggBonus").css("background-color", "#2f9ec2");
+                $(".toggBonus").css("color", "#000000");
+                switch (String(e.currentTarget.id)) {
+                    case "lowBonusBtn":
+                        gameData.bonus = 1;
+                        break;
+                    case "normalBonusBtn":
+                        gameData.bonus = 2;
+                        break;
+                    case "bigBonusBtn":
+                        gameData.bonus = 4;
+                        break;
+                    case "customBonusBtn":
+                        var customBonus = prompt("Custom Bonus: ");
+                        if (!isNullOrEmpty(customBonus))
+                            try {
+                                gameData.bonus = parseInt(customBonus);
+                            } catch (ex) {
+                                gameData.bonus = 2;
+                            }
+                        break;
+                    default:
+                        gameData.bonus = 2;
+                        break;
+                }
+            }
+            $("#" + e.currentTarget.id).css("background-color", "#000000");
+            $("#" + e.currentTarget.id).css("color", "#2f9ec2");
+        });
+
+        $("#btnSetupPlayerNo").click(function() {
+            if (setPlayerNo()) {
+                $(".playerNo").hide();
+
+                $("#divSetupMsg").text("Please set the name for Player 1:");
+                $(".playerName").show();
+                $("#tbSetupPlayerName").val("").focus();
+            }
+        });
+
+        $("#tbSetupPlayerNo").keypress(function(e) {
+            if (e.which === 13 || e.which === 32) {
+                if (setPlayerNo()) {
+                    $(".playerNo").hide();
+
+                    $("#divSetupMsg").text("Please set the name for Player 1:");
+                    $(".playerName").show();
+                    $("#tbSetupPlayerName").val("").focus();
+                }
+            } else {
+                checkNo(e, "#tbSetupPlayerNo", 2, 6);
+            }
+        });
+
+        $("#currentAuction").keypress(function(e) {
+            if (e.which === 13 || e.which === 32) {
+                nextAction();
+            } else {
+                checkNo(e, "#currentAuction", 0, roundsNoArray[gameData.currentRound]);
+            }
+        });
+
+        $("#currentDone").keypress(function(e) {
+            if (e.which === 13 || e.which === 32) {
+                nextAction();
+            } else {
+                checkNo(e, "#currentDone", 0, roundsNoArray[gameData.currentRound]);
+            }
+        });
+
+        $("#tbSetupPlayerName").keypress(function(e) {
+            if ((e.which === 13) && (currentPlayer < playerNo))
+                setPlayerNameNext();
+            /*else {
+                playerSetup("hide");
+            }*/
+        });
+
+        $("#btnSetupNext").click(function() {
+            setPlayerNameNext();
+        });
+
+        $("#btnSetupBack").click(function() {
+            setPlayerNameBack();
+        });
+
+        $("#btnStartGame").click(function() {
+            startGame();
+        });
+
+        $("#btnNext").click(function() {
+            nextAction();
+        });
+
+        $("#btnBack").click(function() {
+            previousAction();
+        });
+
+	</script>
+
+</body>
+
+</html>

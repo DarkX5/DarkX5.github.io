@@ -1,0 +1,1 @@
+var slData = [{"text":"Shopping Test Item 1","value":0},{"text":"Shopping Test Item 2","value":1},{"text":"Shopping Test Item 3","value":0}]

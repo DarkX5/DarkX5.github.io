@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TEMPLATE TITLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "bootstrap.min.css"});
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "bootstrap-theme.min.css"});
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "bootstrap.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery-3.1.1.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery.touchSwipe.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+
+    <style>
+        body {
+            width: 95%;
+        }
+		
+    </style>
+
+</head>
+
+<body>
+	
+	
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+		
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>WiFi Info</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+    (function() {
+    var urlList = [];
+    /* load styles */
+    urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+    /* load scripts */
+    urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+    urlList.push({"type":"script", "src": r.path +"/data/wifiInfoData.js"});
+    if(r.OS != "Android")
+    urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+    
+    r.f.loadResources(urlList);
+    })();
+    window.onload = function() { init(); }
+    </script>
+    
+    <style>
+        body { width: 95%; }
+    	input { width: 100%; height: 5vh; resize: none; }
+    	textarea { width: 100%; height: 82vh; resize: none; }
+    	span { font-size: 15px; font-weight: bold; }
+        .hide { display: none !important; }
+        
+        .line-1 { line-height: 50px !important; }
+        .line-2 { line-height: 25px !important; }
+    
+        .w50 { width: 50% !important; }
+        .w100 { width: 100% !important; }
+    
+        .flex { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; }
+        .flex-left { justify-content: flex-start !important; }
+        .flex-right { justify-content: flex-end !important; }
+        .flex-wrap { flex-wrap: wrap !important; }
+        .flex-top { align-items: flex-start !important; }
+        .flex-bottom { align-items: flex-end !important; }
+        .flex-sb { justify-content: space-between; }
+    
+        .separator-v5 { height: 5px; width: 100%; }
+        .separator-h5 { height: 100%; width: 5px; }
+
+        #NetworkListHeader textarea, .result-container .network textarea { height: 50px; cursor: default; }
+        #NetworkListHeader textarea { font-weight: bold; text-align: center; }        
+        .result-container .network textarea { text-align: center; }        
+    	#NetworkListFilter .checkbox { background-color: rgba(47, 158, 194, 0.5); color: white; text-align: center; border-radius: 25px; padding-left: 15px; padding-right: 15px; padding-top: 15px; padding-bottom: 15px; font-weight: bold; }
+    	#NetworkListFilter .checkbox.active { background-color: rgba(47, 158, 194, 1); color: white; }
+    </style>
+
+</head>
+
+<body>
+    
+    <input id="searchBox" class="text-box" onkeyup="search()" placeholder="Search networks..."/>
+    <div class="separator-v5"></div>
+<!--
+    <button class="btn-save">Save SSID to cliboard</button>
+    <button class="btn-save">Save Password to cliboard</button>
+-->
+    <div class="separator-v5"></div>
+    <div id="NetworkListFilter" class="flex flex-sb network">
+            <div class="checkbox active" data-key="ssid" onclick="toggleColumn(this)">SSID</div>
+            <div class="checkbox active" data-key="key" onclick="toggleColumn(this)">KEY</div>
+            <div class="checkbox" data-key="type" onclick="toggleColumn(this)">Enc. Type</div>
+            <div class="checkbox" data-key="priority" onclick="toggleColumn(this)">Priority</div>
+    </div>
+    <div class="separator-v5"></div>
+    <div id="NetworkListHeader" class="flex network">
+            <textarea id="Hssid" class="line-1" readonly>SSID</textarea>
+            <textarea id="Hkey" class="line-1" readonly>KEY</textarea>
+            <textarea id="Htype" class="line-2 hide" readonly>Encryption Type</textarea>
+            <textarea id="Hpriority" class="line-1 hide" readonly>Priority</textarea>
+    </div>
+    <div class="separator-v5"></div>
+    <div id="NetworkList" class="result-container">
+    </div>
+
+    <textarea id="FileContent" class="hide">
+    </textarea>
+    
+    <script type="text/javascript">
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        var o = {};
+        o.class = {
+            "hide": "hide"
+        }
+        var wfile = document.getElementById("FileContent").textContent;
+        var networks = [];
+        var nHide = {};
+        nHide.Name = false;
+        nHide.Pass = false;
+        nHide.Encryption = true;
+        nHide.Priority = true;
+
+        function init() {
+            loadData();
+        }
+        
+        function toggleColumn(target) {
+            var column = target.getAttribute("data-key"); // document.getElementsByClassName("checkbox");
+            var active = "active";
+            var state = false;
+            if(target.className.indexOf(active) > -1) {
+            	target.className = "checkbox";
+                state = true;
+            }
+            else
+            	target.className = "checkbox "+ active;
+            
+            switch(column) {
+            	case "ssid":	 nHide.Name = state;
+            					 document.getElementById("Hssid").className = ( state ? "line-1 hide" : "line-1" );
+            		break;
+            	case "key":		 nHide.Pass = state;
+            					 document.getElementById("Hkey").className = ( state ? "line-1 hide" : "line-1" );
+            		break;
+            	case "type": 	 nHide.Encryption = state;
+            					 document.getElementById("Htype").className = ( state ? "line-2 hide" : "line-2" );
+            		break;
+            	case "priority": nHide.Priority = state;
+            					 document.getElementById("Hpriority").className = ( state ? "line-1 hide" : "line-1" );
+            		break;
+            }
+            search();
+        }
+        
+        function search() {
+            var searchKey = document.getElementById("searchBox").value.toLowerCase();
+
+            var resultsContainer = document.getElementById("NetworkList");
+            resultsContainer.innerHTML = "";
+            for(var i = 0, networkLine; i < networks.length; i += 1) {
+                if((networks[i].ssid.toLowerCase().indexOf(searchKey) > -1)
+                    || (networks[i].key.toLowerCase().indexOf(searchKey) > -1)) {
+                    networkLine = '<div class="flex network">';
+                    networkLine += '<input value="'+ networks[i].ssid +'" class="'+ (nHide.Name ? o.class.hide : "") +'" readonly/>';
+                    networkLine += '<input value="'+ networks[i].key +'" class="'+ (nHide.Pass ? o.class.hide : "") +'" readonly/>';
+                    networkLine += '<input value="'+ networks[i].encryption +'" class="'+ (nHide.Encryption ? o.class.hide : "") +'" readonly/>';
+                    networkLine += '<input value="'+ networks[i].priority +'" class="'+ (nHide.Priority ? o.class.hide : "") +'" readonly/>';
+                    networkLine += '</div>';
+                    networkLine += '<div class="separator-v5"></div>';
+                    resultsContainer.innerHTML += networkLine;
+                }
+            }
+        }
+
+        function copyToClipboard(target) {
+            var functionName = "setClipboard";
+            var priority = 100;
+            var tClass = target.getAttribute("class");
+            
+            if(tClass == "network ssid" || tClass == "network key") {
+                performTask(functionName, 100, target.textContent);
+                flash("Clipboard set to: "+ target.textContent);
+            }
+        }
+        
+        function loadData() {
+            if(m.f.isNullOrEmpty(wfile)) {
+                //networks = wifiInfo;
+                //alert(wifiInfo.length);
+            }
+            else {
+                    var fileString = wfile;
+                    var regex = /(network={((.|\n)*?)})/mg;
+                    var ssidRegex = /(ssid=\"((.)*?)\")/;
+                    var keyRegex = /(psk=\"((.)*?)\")/;
+                    var encryptionRegex = /(key_mgmt=((.)*?)\n)/;
+                    var priorityRegex = /(priority=((.)*?)\n)/;
+            
+                    var matches = fileString.match(regex);
+                    for(var i = 0, tempNetwork; i < matches.length; i += 1) {
+                        tempNetwork = {};
+                        tempNetwork.ssid = matches[i].match(ssidRegex)[2];
+                        tempNetwork.key = matches[i].match(keyRegex)[2];
+                        tempNetwork.encryption = matches[i].match(encryptionRegex)[2];
+                        tempNetwork.priority = matches[i].match(priorityRegex)[2];
+                        networks.push(tempNetwork);
+                    }
+            }
+
+			search();  
+            saveData();
+        }
+        
+        function saveData() {
+        	if(!m.f.isNullOrEmpty(wfile))
+        		performTask("Save Data", 100, m.path +"/data/wifiInfoData.js", "var wifiInfo = {}; wifiInfo.data = "+ JSON.stringify(networks));
+        }
+
+	</script>
+</body>
+
+</html>

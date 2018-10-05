@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>PC COMMANDS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+
+        //initialize variables & buttons
+        window.onload = function() { init(); }
+    </script>
+
+<style>
+
+    body { background-color: rgba(0, 0, 0, 0.65); }
+
+    .label { font-weight: bold; color: white; }
+    .devices, .commands { margin: 5px; }
+    .devices .row, .commands .row { display: flex; justify-content: center; flex-flow: row wrap; width: 100%; }
+    
+    .row .btn { background-color: rgba(47, 158, 194, 0.5); color: white; border-radius: 25px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-weight: bold; margin: 5px; }
+    .row .btn-img { background-color: rgba(47, 158, 194, 0.5); color: white; border-radius: 25px; padding-left: 25px; padding-right: 25px; padding-top: 10px; padding-bottom: 10px; font-weight: bold; margin: 5px; }
+    .row .btn-img img { height: 32px; width: 32px; display: block; margin: 0 auto; }
+
+    .row .btn.active { background-color: rgba(47, 158, 194, 1); color: white; }
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="devices">
+        <div class="label">Devices:</div>
+        <div class="row js-devices-row">
+            <div class="btn js-device-btn" data-dev="all" onclick="toggleDevice(this)">All</div>
+            <div class="btn js-device-btn" data-dev="win10" onclick="toggleDevice(this)">Windows 10</div>
+            <div class="btn js-device-btn active" data-dev="darkpc" onclick="toggleDevice(this)">Dark PC</div>
+            <div class="btn js-device-btn" data-dev="darktablet" onclick="toggleDevice(this)">Dark Tablet</div>
+            <div class="btn js-device-btn" data-dev="work" onclick="toggleDevice(this)">Work</div>
+        </div>
+    </div>
+
+    <div class="commands" data-type="cmd">
+        <div class="label">Power Commands:</div>
+        <div class="row">
+            <div class="btn" data-cmd="ping" onclick="sendCommand(this)">Ping</div>
+            <div class="btn" data-cmd="sleep" onclick="sendCommand(this)">Sleep</div>
+            <div class="btn" data-cmd="reboot" onclick="sendCommand(this)">Reboot</div>
+            <div class="btn" data-cmd="hibernate" onclick="sendCommand(this)">Hibernate</div>
+            <div class="btn" data-cmd="poweroff" onclick="sendCommand(this)">Power Off</div>
+        </div>
+    </div>
+
+    <div class="commands" data-type="msc">
+        <div class="label">Music Commands:</div>
+        <div class="row">
+            <div class="btn-img" data-cmd="previous" onclick="sendCommand(this)">
+                <img class="js-img" data-src="previous.png" />
+            </div>
+            <div class="btn-img" data-cmd="stop" onclick="sendCommand(this)">
+                <img class="js-img" data-src="stop.png" />
+            </div>
+            <div class="btn-img" data-cmd="play" onclick="sendCommand(this)">
+                <img class="js-img" data-src="play.png" />
+            </div>
+            <div class="btn-img" data-cmd="next" onclick="sendCommand(this)">
+                <img class="js-img" data-src="next.png" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+
+        var data = {
+            "devices": "All,Windows 10,Chrome,Dark PC,Dark Tablet,Work",
+            "deviceSplitter": ","
+        }
+        //var data = JSON.parse(local("data"));
+        var device = data.devices.split(data.deviceSplitter);
+        //var data = local("devicenames").split(","); // ["All", "Windows 10", "Chrome", "Dark PC", "Dark Tablet", "Work"];
+        //var cmds = local("commands").split(","); // ["Ping", "Sleep", "Reboot", "Hibernate", "Power Off"];
+
+       var elem = {
+            devices: {  jsRow: "js-devices-row",
+                        btnJsClass: "js-device-btn",
+                        btnClass: "btn" },
+            commands: { jsDiv: "js-commands-div",
+                        jsImg: "js-img",
+                        btnClass: "btn",
+                        imgClass: "btn-img",
+                        cmdPlay: "play",
+                        cmdPause: "pause" },
+            other: {    activeClass: "active",
+                        cmdTask: "PC Command Send",
+                        cmdPrefix: "cmd=:=",
+                        mscPrefix: "msc=:=",
+                        imgPath: "/sdcard/0Sync/Work/HTML/Tasker Webviews/icon/" },
+            data: {     device: "data-dev",
+                        type: "data-type",
+                        cmd: "data-cmd" }
+        }
+
+        function init() {
+            /* For Debugging purposes */
+            if (m.OS != "Android")
+                elem.other.imgPath = "./icon/";
+            else
+                elem.other.imgPath = "/sdcard/0Sync/Work/HTML/Tasker Webviews/icon";
+
+            setImgSources();
+        }
+
+        function setImgSources() {
+            var imgs = document.getElementsByClassName(elem.commands.jsImg);
+            for (var i = 0; i < imgs.length; i += 1)
+                imgs[i].setAttribute("src", elem.other.imgPath + (imgs[i].getAttribute("data-src")))
+
+        }
+
+        function toggleDevice(target) {
+            var devices = document.getElementsByClassName(elem.devices.btnJsClass);
+            var inactive = elem.devices.btnClass + " " + elem.devices.btnJsClass;
+
+            for (var i = 0; i < devices.length; i += 1) {
+                devices[i].className = inactive;
+            }
+
+            target.className += " " + elem.other.activeClass;
+        }
+
+        function sendCommand(target) {
+            var selectedDevice = document.getElementsByClassName(elem.other.activeClass)[0].getAttribute(elem.data.device);
+            var cmdType = target.parentElement.parentElement.getAttribute(elem.data.type);
+            var cmd = target.getAttribute(elem.data.cmd);
+
+            if(cmd === elem.commands.cmdPlay || cmd === elem.commands.cmdPause) {
+                if(cmd === elem.commands.cmdPlay)
+                    target.setAttribute(elem.data.cmd, elem.commands.cmdPause);
+                else
+                    target.setAttribute(elem.data.cmd, elem.commands.cmdPlay);
+            }
+
+            switch(cmdType) {
+                case "cmd": cmd = elem.other.cmdPrefix + cmd;
+                    break;
+                case "msc": cmd = elem.other.mscPrefix + cmd; 
+                    break;
+            }
+
+            performTask(elem.other.cmdTask, 50, selectedDevice, cmd);
+        }
+    </script>
+</body>
+
+</html>

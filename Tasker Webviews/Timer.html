@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Timer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery.min.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+                
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+
+    <style>
+    	body {
+    		background: black; 
+    		height:93%
+    	}
+        .btnStyle {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 97.5%;
+            height: 40px;
+            text-align: center;
+            vertical-align: middle;
+            cursor: pointer;
+            margin-top: 10px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0 0px;
+            overflow: hidden;
+            border: none;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+            font: normal 20px/normal "Antic", Helvetica, sans-serif;
+            color: rgba(0, 0, 0, 1);
+            text-decoration: normal;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+        }
+
+        .spacer {
+            width: 2.5%;
+        }
+
+        .lineStyle {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            padding: 1.25%;
+        }
+
+        .largeNoInput {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+            cursor: pointer;
+            text-align: center;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 0 0px;
+            overflow: hidden;
+            border: none;
+            -webkit-border-radius: 25px;
+            border-radius: 25px;
+            font: bold 5px/normal "Antic", Helvetica, sans-serif;
+            color: rgba(47, 158, 194, 1);
+            text-decoration: normal;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            -webkit-box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
+            box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.5) inset;
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 20px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px #000000;
+            background: #3071A9;
+            border: 1px solid #000000;
+        }
+
+        input[type=range]::-moz-range-track {
+            width: 100%;
+            height: 20px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px #000000;
+            background: #3071A9;
+            border-radius: 30px;
+            border: 1px solid #000000;
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            height: 20px;
+            cursor: pointer;
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            background: #00C9FF;
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -16px;
+        }
+
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            background: #00C9FF;
+            cursor: pointer;
+        }
+
+        input[type=range]::-ms-thumb {
+            box-shadow: 1px 1px 1px #000000;
+            border: 1px solid #000000;
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            background: #00C9FF;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body onresize="resizeElements()">
+    <div id="timerContainer" style="height:97.5%">
+        <div class="lineStyle">
+            <div id="hourBox" class="largeNoInput">0</div>
+            <div class="spacer"></div>
+            <div id="minuteBox" class="largeNoInput">0</div>
+        </div>
+        <div class="lineStyle">
+            <input id="hourSlider" type="range" min="0" max="24" class="sliderStyle" oninput="showValue(this)" value="0">
+            <div class="spacer"></div>
+            <input id="minuteSlider" type="range" min="0" max="59" class="sliderStyle" oninput="showValue(this)" value="0">
+        </div>
+        <div class="lineStyle">
+            <button id="exitBtn" class="btnStyle" style="background-color: darkred; color: white;" onclick="exitTimer()"><b>Exit</b></button>
+            <div class="spacer"></div>
+            <button id="startBtn" class="btnStyle" style="background-color: #2f9ec2; color: white;" onclick="startTimer()"><b>Start</b></button>
+        </div>
+    </div>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        var hourBox = document.getElementById("hourBox"),
+            minuteBox = document.getElementById("minuteBox"),
+            hourSlider = document.getElementById("hourSlider"),
+            minuteSlider = document.getElementById("minuteSlider");
+
+        function init() {
+            hourSlider.value = 0;
+            minuteSlider.value = 0;
+
+            resizeElements();
+        }
+
+        function isDST(dateTime) { //checks dateTime - returns true if daylight saving time is in effect.
+            var jan = new Date(dateTime.getFullYear(), 0, 1);
+            var jul = new Date(dateTime.getFullYear(), 6, 1);
+            if (Math.min(jan.getTimezoneOffset(), jul.getTimezoneOffset()) == dateTime.getTimezoneOffset())
+                return 0;
+            else
+                return -1;
+        }
+
+        function resizeElements() {
+            var windowHeight;
+            if (window.innerHeight) {
+                windowHeight = window.innerHeight;
+            } else {
+                windowHeight = document.body.clientHeight;
+            }
+
+            var fontSize;
+            if (windowHeight >= 600)
+                fontSize = "350";
+            else if (windowHeight >= 500 && windowHeight < 600)
+                fontSize = "250";
+            else if (windowHeight >= 400 && windowHeight < 500)
+                fontSize = "200";
+            else if (windowHeight >= 300 && windowHeight < 400)
+                fontSize = "150";
+            else if (windowHeight >= 200 && windowHeight < 300)
+                fontSize = "100";
+            else if (windowHeight >= 100 && windowHeight < 200)
+                fontSize = "50";
+            else
+                fontSize = "25";
+
+            hourBox.style.fontSize = fontSize + "px";
+            minuteBox.style.fontSize = fontSize + "px";
+        }
+
+        function checkNo(target) {
+            var checkArray = ["e", "-", ".", "+"];
+            var temp = parseInt(target.value);
+            if (isNullOrEmpty(target.value))
+                target.value = 0;
+            else {
+                if (temp < 0)
+                    target.value = 0;
+            }
+        }
+
+        function clearInput(target) {
+            target.value = "";
+        }
+
+        function showValue(target) {
+            if (target.id === "hourSlider")
+                hourBox.textContent = target.value;
+            else
+                minuteBox.textContent = target.value;
+        }
+
+        function startTimer() {
+            var hourValue, minuteValue;
+            var minute = 60000;
+            var hour = 60 * minute;
+            var now = new Date();
+            //var dstOffset, zoneOffset;
+
+            if (isNullOrEmpty(hourBox.textContent))
+                hourValue = hourBox.textContent = 0;
+            else
+                hourValue = hourBox.textContent;
+            if (isNullOrEmpty(minuteBox.textContent))
+                minuteValue = minuteBox.textContent = 0;
+            else
+                minuteValue = minuteBox.textContent;
+
+            hourValue *= hour;
+            minuteValue *= minute;
+            //zoneOffset = now.getTimezoneOffset() * minute;
+            //dstOffset = isDST(now) * hour;
+
+            now = new Date(now.getTime() + hourValue + minuteValue);
+
+            setAlarm(now.getHours(), now.getMinutes(), "Timer Alarm (Tasker)", false);
+            exitTimer();
+        }
+
+        function exitTimer() {
+            destroyScene("Timer Scene");
+        }
+    </script>
+</body>
+
+</html>

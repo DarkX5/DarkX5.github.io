@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>RUN COMMANDS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/data/pcCommands.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+
+    <style>
+        body {
+            background-color: black;
+            width: 96vw;
+            height: 96vh;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .btn-separator-w { width: 35px; }
+        .btn-separator-h { height: 15px; }
+        .btn-1line { line-height: 38px !important; }
+        .btn-2line { line-height: 19px !important; }
+
+        .btn {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 5px 7.5px 5px 7.5px;
+            margin: 2.5px 2.5px 2.5px 2.5px;
+            border-radius: 100px 100px 100px 100px;
+            background: rgba(47, 158, 194, 0.25);
+            color: rgba(250, 250, 250, 1);
+            cursor: pointer;
+            -webkit-box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.5) inset;
+            box-shadow: 3px 3px 6px 0px rgba(47, 158, 194, 0.5) inset;
+        }
+
+        .btn .image {
+            text-decoration: normal;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            /* box-shadow: -1px 0px 0px 0px rgba(47, 158, 194, 0.5) inset; */
+            padding: 12px 10px 10px 10px;
+            border-radius: 25px 0px 0px 25px;
+            margin-right: 1px;
+        }
+        .btn .image .value {
+            width: 32px;
+            min-width: 32px;
+            max-width: 32px;
+            height: 32px;
+            min-height: 32px;
+            max-height: 32px;
+        }
+        .btn .text {
+            width: 100px;
+            line-height: 38px;
+            text-align: center;
+            font-weight: bold;
+            text-decoration: normal;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            box-shadow: 1px 0px 0px 0px rgba(47, 158, 194, 0.5) inset;
+            padding: 10px 10px 10px 10px;
+            border-radius: 0px 25px 25px 0px;
+            margin-left: 1px;
+
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        .btn:active {
+            background: rgba(0, 191, 255, 0.25);
+            box-shadow: 6px 6px 12px 0px rgba(0, 191, 255, 0.5) inset;
+            transform: translate(2px, 2px);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <div id="tvStart" class="btn" data-cmd="">
+            <div class="sub-btn image">
+                <img class="value" src="./icon/teamviewerstart.png"/>
+            </div>
+            <div class="sub-btn text btn-2line">Team Viewer Start</div>
+        </div>
+        <div id="tvEnd" class="btn" data-cmd="">
+            <div class="sub-btn image">
+                <img class="value" src="./icon/teamviewerend.png"/>
+            </div>
+            <div class="sub-btn text btn-2line">Team Viewer End</div>
+        </div>
+        <div id="" class="btn" data-cmd="">
+            <div class="sub-btn image">
+                <img class="value" src="./icon/edit.png"/>
+            </div>
+            <div class="sub-btn text">Button Test</div>
+        </div>
+    </div>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        function init() {
+
+        }
+
+	</script>
+</body>
+
+</html>

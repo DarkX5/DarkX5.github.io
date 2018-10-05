@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TODO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "jquery.min.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+    
+    <style type="text/css">
+        body { width: 95%; }
+					textarea { width: 100%; height: 42vh; resize: none; }
+					span { font-size: 15px; font-weight: bold; }
+        
+        .hide { display: none !important; }
+
+        .w50 { width: 50% !important; }
+        .w100 { width: 100% !important; }
+
+        .flex { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; }
+        .flex-left { justify-content: flex-start !important; }
+        .flex-right { justify-content: flex-end !important; }
+        .flex-wrap { flex-wrap: wrap !important; }
+        .flex-top { align-items: flex-start !important; }
+        .flex-bottom { align-items: flex-end !important; }
+        .flex-sb { justify-content: space-between; }
+
+        .separator-v5 { height: 5px; width: 100%; }
+        .separator-v25 { height: 25px; width: 100%; }
+        .separator-h5 { height: 100%; width: 5px; }
+        
+        .btn { background-color:#2f9ec2; color:white; display: inline-block; padding:10px; margin:.5px; }
+    </style>
+
+</head>
+
+<body>
+	
+	<div class="flex flex-wrap"
+    <div>TODO Current Value:</div>
+    <div>$TODOValue</div>
+    <div>Add item:</div>
+    <div>Item Description: </div>
+    <div>$itemValue</div>
+
+    <div>Save</div>
+    <div>Exit</div>
+
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        function init() {
+
+        }
+		
+	</script>
+</body>
+
+</html>

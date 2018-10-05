@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Greek Text</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script>
+    </script>
+
+    <style>
+        body {
+            width: 95%;
+        }
+		
+    </style>
+
+</head>
+
+<body>
+    <textarea id="resultBox" rows="50" cols="50">
+        Result in greek...
+    </textarea>
+     
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+		var txt = "Tatal nostru Care ne esti in ceruri Sfinteasca-se numele Tau Vie imparatia Ta Faca-se voia Ta Precum in cer asa si pre Pamant Painea noastra cea de toate zilele Da-ne-o noua astazi Si ne iarta noua gresalele noastre Precum si noi iertam gresitilor nostri Si nu ne duce pre noi in ispita Ci ne izbaveste de cel rau Ca a Ta este imparatia Slava si puterea In numele Tatalui Al Fiului Al Sfantului Duh Amin.";
+        var greekList = {};
+
+        //greekList. = "";
+        greekList.A = "Α"; 
+        greekList.a = "α";
+        greekList.B = "Β";
+        greekList.b = "ß";
+        greekList.c = "κ";
+        greekList.C = "Κ"; 
+        greekList.d = "δ";
+        greekList.D = "Δ"; 
+        greekList.e = "ε";
+        greekList.E = "Ε";
+        greekList.f = "φ";
+        greekList.F = "Φ"; 
+        greekList.g = "γ";
+        greekList.G = "Γ";
+        greekList.h = "θ";
+        greekList.H = "Θ";
+        greekList.i = "ι";
+        greekList.I = "Ι"; 
+        greekList.j = "ι";
+        greekList.J = "Ι"; 
+        greekList.k = "κ";
+        greekList.K = "Κ";
+        greekList.l = "λ";
+        greekList.L = "Λ";
+        greekList.m = "µ";
+        greekList.M = "Μ";
+        greekList.n = "ν";
+        greekList.N = "Ν";
+        greekList.o = "ω";
+        greekList.O = "Ω";
+	greekList.u = "υ";
+	greekList.U = "Υ";
+        greekList.v = "ß"; 
+        greekList.V = "ß"; 
+        greekList.p = "π";
+        greekList.P = "Π";
+        greekList.r = "ρ";
+        greekList.R = "Ρ";
+        greekList.s = "σ";
+        greekList.S = "Σ";
+        greekList.t = "τ";
+        greekList.T = "Τ";
+        greekList.x = "ξ";
+        greekList.X = "Ξ";
+        greekList.z = "ζ";
+        greekList.Z = "Ζ";
+
+        var chr = "";
+        var result = "";
+        for(var i = 0; i < txt.length; i += 1) {
+            chr = greekList[txt[i]];
+            if(chr == undefined)
+                result += txt[i];
+            else
+                result += chr;
+        }
+        
+        document.getElementById("resultBox").value = result;
+	</script>
+</body>
+
+</html>

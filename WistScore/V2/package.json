@@ -1,0 +1,29 @@
+{
+    "name": "irina-mitrica-portfolio",
+    "productName": "Irina Mitrica Portfolio",
+    "version": "0.1.0",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "dist": "build"
+    },
+    "keywords": [
+        "Electron",
+        "quick",
+        "start",
+        "tutorial",
+        "demo"
+    ],
+    "devDependencies": {
+        "electron": "^1.4.3",
+        "electron-builder": "^19.55.2",
+        "electron-packager": "^8.1.0"
+    },
+    "build": {
+        "appId": "com.irina.mitrica.portfolio",
+        "win": {
+            "target": "nsis",
+            "icon": "build/mainIcon.ico"
+        }
+    }
+}

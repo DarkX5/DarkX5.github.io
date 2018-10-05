@@ -1,0 +1,215 @@
+body {
+    width: 95vw;
+    background-color: black;
+    color: #ffffff;
+}
+
+.hide { display: none !important; }
+.underline { text-decoration: underline !important; }
+.t-center { text-align: center; }
+
+.flex {
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.nowrap { flex-wrap: nowrap !important; }
+.flex-column { flex-direction: column !important; }
+
+.align-sb { justify-content: space-between !important; }
+.align-sa { justify-content: space-around !important; }
+.align-r { justify-content: flex-end !important; }
+.align-l { justify-content: flex-start !important; }
+.align-t { align-items: flex-start !important; }
+.align-b { align-items: flex-end !important; }
+
+.scroll { overflow-y: scroll; }
+
+.page.content {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.title {
+    width: 100%;
+    color: #2f9ec2;
+}
+
+.pcontainer { cursor: pointer; }
+
+.pspacer { width: 25px; }
+.pspacer-small { width: 10px; }
+
+.spacer-w10p { width: 10%; }
+.spacer-w25p { width: 25%; }
+.spacer-w50p { width: 50%; }
+
+.spacer-content { height: 10px; }
+.spacer-main-menu { height: 50px; }
+.spacer-text { height: 25px; }
+
+.ptitle { width: 100%; color: #2f9ec2; font-weight: bold; text-align: center; }
+.pimage { height: 75vh; padding-left: 15px; padding-right: 15px; }
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+.overlay .text {
+    width: 100%;
+}
+
+.overlay .flex .content {
+    color: #2f9ec2;
+    padding-left: 15px;
+}
+/*
+.overlay .content .container.img img {
+    width: 100%;
+}
+
+.overlay .content .container.video {
+    width: 50%;
+}
+*/
+#OverlayContent .image { width: 100%; }
+#OverlayContent .video { width: 480px; height: 480px; }
+
+#PaintingsContainer { overflow: auto; }
+#PaintingsContainer .info.tcontent.img { width: 100%; }
+#PaintingsContainer .info.tcontent.img .trow {
+    flex-wrap: nowrap;
+    width: 100%;
+    /* padding-left: 25px; */
+}
+#PaintingsContainer .info.tcontent.img .text {
+    width: 75px;
+    padding-right: 10px;
+    /* text-align: right; */
+}
+#PaintingsContainer .info.tcontent.img .content {
+    width: 65%;
+    text-align: left;
+    color: #2f9ec2;
+}
+
+.firm-name {
+    width: 37.5%;
+    color: #2f9ec2;
+    font-size: 18pt;
+    font-weight: bold;
+    padding-left: 25px;
+    text-align: left;
+}
+
+.w100 { width: 100%; }
+.w75 { width: 75%; }
+.w50 { width: 50%; }
+.w25 { width: 25%; }
+
+.btn-container {
+    width: 37.5%;
+    text-align: right;
+}
+
+.btn {
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 15pt;
+    font-weight: bold;
+    white-space: nowrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* border-top: 1px solid #2f9ec2; */
+    /* border-bottom: 1px solid #2f9ec2; */
+}
+
+.btn:hover {
+    color: #3f3f3f;
+}
+
+.btn-selected {
+    /* background-color: rgba(47, 158, 194, 0.25); */
+    color: #2f9ec2 !important;
+}
+
+.container.main {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #2f9ec2;
+}
+
+@media (max-width: 400px) {
+    /* .pimage { width: 100%; } */
+    .pvideo { width: 100%; height: auto; }
+}
+
+@media (min-width: 401px) {
+    /* .pimage { width: 360px; } */
+    .pvideo { width: 360px; height: 360px; }
+}
+
+@media (max-width: 650px) {
+    .overlay .info.position { 
+        position: unset;
+        top: 25px;
+        right: unset;
+    }
+    #OverlayContent { width: 100%; }
+    #OverlayContent .image { width: 100%; }
+    /* #OverlayText { width: 100%; padding-left: 0px; } */
+}    
+
+@media (min-width: 651px) {
+    .overlay .info.position { 
+        position: absolute;
+        top: 75px;
+        right: 0;
+    }
+    #OverlayContent { width: 75%; }
+}    
+
+/*
+@media (max-height: 650px) {
+    .pcontainer { flex-wrap: nowrap; }
+    #PaintingsContainer .info.tcontent.img .trow {
+        width: 300px;
+    }
+    #PaintingsContainer .info.tcontent.img .text {
+        width: 25%;
+        text-align: left;
+        padding-right: 10px;
+    }
+    #PaintingsContainer .info.tcontent.img .content {
+        width: 65%;
+    }
+}
+
+@media (min-height: 651px) {
+    .pcontainer { flex-wrap: wrap; }
+    #PaintingsContainer .info.tcontent.img .trow {
+        width: 100%;
+    }
+    #PaintingsContainer .info.tcontent.img .text {
+        width: 45%;
+        text-align: right;
+        padding-right: 25px;
+    }
+    #PaintingsContainer .info.tcontent.img .content {
+        width: 45%;
+    }
+}
+*/
+

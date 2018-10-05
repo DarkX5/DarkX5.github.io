@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TEMPLATE TITLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+</head>
+
+<body>
+	<input type="text" id="NewValue"/>
+	<button onclick="set()">SET</button>
+	<div id="LocalStorageDiv" class="classATest right" style="width:150px; height: 150px; border-width: 1px; border-color:black; border-style:solid;"></div>
+	
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+		
+		var temp = document.getElementById("LocalStorageDiv");
+		temp.textContent = getLS("testVar");
+		function set(){
+			var newVal = document.getElementById("NewValue").value;
+			setLS("testVar", newVal);
+			temp.textContent = getLS("testVar");
+		}
+		
+		//GET Local Storage Variable
+		function getLS (varName) {
+			if(isNullOrEmpty(varName)) {
+				console.log('Error "getLS()" - Invalid variable name');
+				return varName;
+			}
+			// Get Item from LocalStorage or highScore === 0
+			var returnVar = localStorage.getItem(varName);
+			
+			// Set a default value for the item
+			if(isNullOrEmpty(returnVar))
+				returnVar = {};
+			
+			// Return the high score
+			return returnVar;
+		}
+		
+		//SET Local Storage Variable
+		function setLS(varName, newVal) {
+		
+			if(isNullOrEmpty(varName)) {
+				console.log('Error "setLS()" - Invalid variable name');
+				return varName;
+			}
+			
+			if(isNullOrEmpty(newVal))
+				newVal = {};
+				
+			localStorage.setItem(varName, newVal);
+		}
+		
+        //verificare NullOrEmpty
+        function isNullOrEmpty (value, returnValue) {
+            var boolOk = false;
+            var emptyArr = ["undefined", "null", "NaN", ""],
+                    emptyObj = ["{}", "[]"];
+            if (emptyObj.indexOf(JSON.stringify(value)) > -1) {
+                if (returnValue !== null && returnValue !== undefined)
+                    boolOk = returnValue;
+                else
+                    boolOk = true;
+            }
+            try {
+                value = value.replace(/ /g, "");
+            } catch (ex) { }
+            if (emptyArr.indexOf(String(value)) > -1) {
+                if (returnValue !== null && returnValue !== undefined)
+                    boolOk = returnValue;
+                else
+                    boolOk = true;
+            }
+
+            return boolOk;
+        };
+
+        function  parseBool (value) {
+            //negative numbers return false
+            if (!isNullOrEmpty(value)) {
+                switch (typeof value) {
+                    case "boolean": return value;
+                    case "number": return ( value > 0 ? true : false );
+                    case "string":
+                        var checkedVal = String(value).toLowerCase();
+                        switch (value.toLowerCase().trim()) {
+                            case "true": case "yes": case "1": return true;
+                            default: return false;
+                        }
+                    default: return "Invalid Value";
+                }
+            }
+            return false;
+        }
+
+	</script>
+</body>
+
+</html>

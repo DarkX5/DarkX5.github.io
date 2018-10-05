@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>ENCRYPT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link rel="stylesheet" href="masterLib.css">
+
+    <style>
+        body { width: 95%; }
+		textarea { width: 100%; height: 42vh; resize: none; }
+		span { font-size: 15px; font-weight: bold; }
+        .hide { display: none !important; }
+
+        .w50 { width: 50% !important; }
+        .w100 { width: 100% !important; }
+
+        .flex { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; }
+        .flex-left { justify-content: flex-start !important; }
+        .flex-right { justify-content: flex-end !important; }
+        .flex-wrap { flex-wrap: wrap !important; }
+        .flex-top { align-items: flex-start !important; }
+        .flex-bottom { align-items: flex-end !important; }
+
+        .separator-v5 { height: 5px; width: 100%; }
+        .separator-h5 { height: 100%; width: 5px; }
+    </style>
+
+</head>
+
+<body>
+    <textarea id="inputBox" class="text-box" placeholder="Write the text you want to encrypt here... "></textarea>
+    <div class="separator-v5"></div>
+    <div class="flex w100">
+        <div class="flex flex-left w50">
+            <span>Encrypt: </span>
+            <div class="separator-h5"></div>
+            <button class="btn-encrypt-type" data-type="text">Text</button>
+<!--
+            <div class="separator-h5"></div>
+            <button class="btn-encrypt-type" data-type="image">Image</button>
+-->
+        </div>
+        <div class="flex flex-right w50">
+            <span>Decrypt: </span>
+            <div class="separator-h5"></div>
+            <button class="btn-decrypt-type" data-type="text">Text</button>
+<!--
+            <div class="separator-h5"></div>
+            <button class="btn-decrypt-type" data-type="image">Image</button>
+-->
+        </div>
+    </div>
+    <div class="separator-v5"></div>
+    <div class="result-container">
+        <div class="result-box text hide">
+            <textarea placeholder="The encrypted text will show up here... "></textarea>
+            <div class="separator-v5"></div>
+            <button class="btn-save">Save to cliboard</button>
+        </div>
+<!---
+        <div class="result-box image hide">
+            <img src=""/>
+            <div class="separator-v5"></div>
+            <button class="btn-save">Save Image</button>
+        </div>
+-->
+    </div>
+
+    <script src="masterLib.js"></script>
+    <script src="aes.js"></script>
+    <script>
+        // Royal Blue:  #2f9ec2 / rgba(47, 158, 194, 1);
+        var o = {};
+        o.jsClass = {    btnEncryptType: "btn-encrypt-type"
+                        ,btnDecryptType: "btn-decrypt-type" };
+        o.el = {         inputBox: document.getElementById("inputBox")
+                        ,resultText: document.getElementsByClassName("result-box text")[0]
+                        ,resultImage: document.getElementsByClassName("result-box image")[0]
+                        ,btnEncryptType: document.getElementsByClassName(o.jsClass.btnEncryptType)
+                        ,btnDecryptType: document.getElementsByClassName(o.jsClass.btnDecryptType) }
+        o.data = {       password: "pasword" }
+        
+        init();
+
+        function init(){
+            for(var i = 0; i < o.el.btnEncryptType.length; i += 1) {
+                o.el.btnEncryptType[i].addEventListener("click", function() {
+                    setEncryptBtnEvent(this, "encrypt");
+                });
+            }
+
+            for(var i = 0; i < o.el.btnDecryptType.length; i += 1) {
+                o.el.btnDecryptType[i].addEventListener("click", function() {
+                    setEncryptBtnEvent(this, "decrypt");
+                });
+            }
+        }
+
+        function setEncryptBtnEvent(target, type){
+        	var enType = target.getAttribute("data-type").toString();
+        	switch(enType) {
+                case "text": 
+                    if(type === "encrypt")
+                        encryptText(o.el.inputBox.value);
+                    else
+                        decryptText(o.el.inputBox.value);
+                    break;
+                case "image":
+                    if(type === "deccrypt")
+                        encryptImage(o.el.inputBox.value);
+                    else
+                        decryptImage(o.el.inputBox.value);
+        			break;
+        	}
+        }
+        
+        function encryptText(text) {
+            toggleVisibility(o.el.resultText, "hide", true);
+            toggleVisibility(o.el.resultImage, "hide", false);
+            
+            var txtResult = o.el.resultText.getElementsByTagName("textarea")[0];
+			txtResult.value = CryptoJS.AES.encrypt(o.el.inputBox.value, o.data.password).toString();
+        }
+
+        function decryptText(text) {
+            toggleVisibility(o.el.resultText, "hide", true);
+            toggleVisibility(o.el.resultImage, "hide", false);
+
+            var txtResult = o.el.resultText.getElementsByTagName("textarea")[0];
+			txtResult.value = CryptoJS.AES.decrypt(o.el.inputBox.value, o.data.password).toString(CryptoJS.enc.Utf8);
+        }
+        
+        function encryptImage(text) {
+            toggleVisibility(o.el.resultText, "hide", false);
+            toggleVisibility(o.el.resultImage, "hide", true);
+        }
+
+        function decryptImage(text) {
+            toggleVisibility(o.el.resultText, "hide", false);
+            toggleVisibility(o.el.resultImage, "hide", true);
+        }
+	</script>
+</body>
+
+</html>

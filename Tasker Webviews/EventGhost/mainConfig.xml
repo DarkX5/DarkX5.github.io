@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<EventGhost Version="1722" Guid="{04C72BDD-7852-45E1-BFA6-3FC8D137263A}" Time="1496506093.12">
+    <Autostart Name="Autostart" Expanded="True">
+        <Plugin Identifier="Task" Guid="{D1748551-C605-4423-B392-FB77E6842437}" File="Task">
+            gAIpLg==
+        </Plugin>
+        <Action>
+            EventGhost.EnableExclusive(XmlIdLink(204))
+        </Action>
+        <Plugin Identifier="AutoRemote" Guid="{C18A174E-71E3-4C74-9A2B-8653CE9991E1}" File="AutoRemote">
+            gAJdcQAoVQpBdXRvUmVtb3RlcQFNGgdYCgAAAERhcmtUYWJsZXRxAl1xAyhYCwAAAERhcmsgVGFibGV0cQRYAAAAAHEFVQtJbnZhbGlkIFVSTHEGTolOdHEHYWgFWBcAAABDOlxVc2Vyc1xEYXJrXERvd25sb2Fkc3EIiFgtAAAAMS80TlZKc2Y1bDRDTkJnRDY3eTdqWHdLMzF1LW91UVJxMkFSbzVZdlJIbjJvcQmJiFgSAAAAU2VuZCB0byBFdmVudEdob3N0cQqIaAWIZS4=
+        </Plugin>
+    </Autostart>
+    <Folder Name="Context Folder" />
+    <Folder Name="Volume Control">
+        <Macro Name="Mute Volume">
+            <Event Name="Mute" />
+            <Action>
+                System.ToggleMute()
+            </Action>
+        </Macro>
+        <Macro Name="Decrease Volume">
+            <Event Name="VolumeDown" />
+            <Action>
+                System.ChangeMasterVolumeBy(-2.0)
+            </Action>
+            <Action>
+                EventGhost.AutoRepeat(0.59999999999999998, 0.29999999999999999, 0.01, 3.0)
+            </Action>
+        </Macro>
+        <Macro Name="Increase Volume">
+            <Event Name="VolumeUp" />
+            <Action>
+                System.ChangeMasterVolumeBy(2.0)
+            </Action>
+            <Action>
+                EventGhost.AutoRepeat(0.59999999999999998, 0.29999999999999999, 0.01, 3.0)
+            </Action>
+        </Macro>
+    </Folder>
+    <Folder Name="Other Examples">
+        <Folder Name="State Folder Example">
+            <Folder Name="Folder1" id="262" Expanded="True">
+                <Macro Name="Enable other Folder">
+                    <Event Name="Blue" />
+                    <Action>
+                        EventGhost.EnableExclusive(XmlIdLink(266))
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Folder2" id="266" Enabled="False">
+                <Macro Name="Enable other Folder">
+                    <Event Name="Blue" />
+                    <Action>
+                        EventGhost.EnableExclusive(XmlIdLink(270))
+                    </Action>
+                </Macro>
+            </Folder>
+            <Folder Name="Folder3" id="270" Enabled="False" Expanded="True">
+                <Macro Name="Enable other Folder">
+                    <Event Name="Blue" />
+                    <Action>
+                        EventGhost.EnableExclusive(XmlIdLink(262))
+                    </Action>
+                </Macro>
+            </Folder>
+        </Folder>
+        <Folder Name="State Macro Example" Expanded="True">
+            <Macro Name="State1" id="275" Enabled="False">
+                <Event Name="Green" />
+                <Action>
+                    EventGhost.DisableItem(XmlIdLink(275))
+                </Action>
+                <Action>
+                    EventGhost.EnableItem(XmlIdLink(280))
+                </Action>
+                <Action Enabled="False">
+                    System.MonitorPowerOff()
+                </Action>
+            </Macro>
+            <Macro Name="State2" id="280">
+                <Event Name="Green" />
+                <Action>
+                    EventGhost.EnableItem(XmlIdLink(275))
+                </Action>
+                <Action>
+                    EventGhost.DisableItem(XmlIdLink(280))
+                </Action>
+                <Action>
+                    System.MonitorPowerOn()
+                </Action>
+            </Macro>
+        </Folder>
+        <Folder Name="State Macro Example 2">
+            <Macro Name="Macro1" id="286" Enabled="False">
+                <Event Name="Yellow" />
+                <Action>
+                    EventGhost.EnableExclusive(XmlIdLink(289))
+                </Action>
+            </Macro>
+            <Macro Name="Macro2" id="289">
+                <Event Name="Yellow" />
+                <Action>
+                    EventGhost.EnableExclusive(XmlIdLink(292))
+                </Action>
+            </Macro>
+            <Macro Name="Macro3" id="292" Enabled="False">
+                <Event Name="Yellow" />
+                <Action>
+                    EventGhost.EnableExclusive(XmlIdLink(286))
+                </Action>
+            </Macro>
+        </Folder>
+    </Folder>
+    <Folder Name="AutoRemote Events" Expanded="True">
+        <Folder Name="CMD" Expanded="True">
+            <Macro Name="Power CMD" Expanded="True">
+                <Event Name="AutoRemote.Message.ping" />
+                <Event Name="AutoRemote.Message.sleep" />
+                <Event Name="AutoRemote.Message.reboot" />
+                <Event Name="AutoRemote.Message.hibernate" />
+                <Event Name="AutoRemote.Message.power" />
+                <Action>
+                    EventGhost.ShowMessageBox(u'teatr', u'{eg.event.payload.armessage}', u'', u'', False, 28672, 1, 0)
+                </Action>
+            </Macro>
+        </Folder>
+    </Folder>
+</EventGhost>

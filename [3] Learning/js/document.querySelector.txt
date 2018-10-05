@@ -1,0 +1,29 @@
+DOCUMENT.QUERYSELECTOR
+
+If you are using at least IE version 8 and above, you can just map the $ to document.querySelector, which will return you the first matched element from the selector. You can pass any CSS selector to the function.
+
+Note that IE 8 only supports CSS 2.1 selectors for querySelector.
+
+<div class="container">
+  <ul>
+    <li id="pink">Pink</li>
+    <li id="salmon">Salmon</li>
+    <li id="blue">Blue</li>
+    <li id="green">Green</li>
+    <li id="red">Red</li>
+  </ul>  
+</div>
+
+<script>
+
+  // create a global '$' variable
+  window.$ = function(selector) {
+    return document.querySelector(selector);
+  };
+
+  (function() {
+    // select item1 by id and change it's background color to salmon
+    var item = $("#salmon").style.backgroundColor="salmon";
+    console.log(item);
+  }());  
+</script>

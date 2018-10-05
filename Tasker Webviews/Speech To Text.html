@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>TEMPLATE TITLE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <script src="./lib/js/resourceLoader.min.js"></script>
+    <script>
+        (function() {
+            var urlList = [];
+            /* load styles */
+            urlList.push({"type":"style", "src": r.path +"/lib/css/"+ "masterLib.min.css"});
+            /* load scripts */
+            urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "masterLib.min.js"});
+            if(r.OS != "Android")
+                urlList.push({"type":"script", "src": r.path +"/lib/js/"+ "tasker.js"});
+
+            r.f.loadResources(urlList);
+        })();
+        window.onload = function() { init(); }
+    </script>
+
+    <style>
+            body {
+                background-color: black;
+            }
+            .speech {
+                border: 1px solid #DDD;
+                width: 300px;
+                padding: 0;
+                margin: 0
+            }
+    
+            .speech input {
+                border: 0;
+                width: 240px;
+                display: inline-block;
+                height: 30px;
+            }
+    
+            .speech img {
+                float: right;
+                width: 40px
+            }
+        </style>
+    
+</head>
+
+<body>
+    <!-- Search Form -->
+    <form id="labnol" method="get" action="https://www.google.com/search">
+        <div class="speech">
+            <input type="text" name="q" id="transcript" placeholder="Speak" />
+            <img onclick="startSpeech()" src="./icon/phone.png" />
+        </div>
+    </form>
+
+    <!-- HTML5 Speech Recognition API -->
+    <script type="text/javascript">
+
+        function startSpeech(event) {
+            debugger;
+          var sir = new SpeechInputRequest();
+          sir.onresult = handleSpeechInput;
+          sir.start();
+        }
+        function handleSpeechInput(event) {
+          var q = document.getElementById("q");
+          q.value = event.result.item(0).interpretation;
+          q.form.submit();
+        }
+
+    </script>
+</body>
+
+</html>
